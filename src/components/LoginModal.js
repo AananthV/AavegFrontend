@@ -1,5 +1,5 @@
-import React, { Component } from 'react'; 
-import { Modal,Button } from 'react-bootstrap';  
+import React, { Component } from 'react';
+import { Modal,Button } from 'react-bootstrap';
 import LoginForm from './LoginForm'
 
 const styles = {
@@ -7,13 +7,13 @@ const styles = {
         paddingLeft: 0,
         paddingRight: 0
     },
-    modal:{
+    modal: {
         margin:'auto',
         marginTop:'15%'
     }
 };
 
-class Login extends Component {  
+class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,16 +29,13 @@ class Login extends Component {
 	}
 	render(){
         return <span>
-            <Button variant="dark" onClick={this.handleShow.bind(this)} style={styles.button}>
-                Login
-            </Button>
-            <Modal show={this.state.show} onHide={this.handleClose.bind(this)} style={styles.modal}>
-            <Modal.Header closeButton>
-                <Modal.Title>Login</Modal.Title>
-            </Modal.Header>
-            <Modal.Body><LoginForm/></Modal.Body>
-        </Modal>
-        </span>		
+                <Button variant="dark" onClick={this.handleShow.bind(this)} style={styles.button}>
+                    Login
+                </Button>
+                <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)}>
+                  <Modal.Body><LoginForm/></Modal.Body>
+                </Modal>
+              </span>
 	}
-}  
-export default Login;  
+}
+export default Login;

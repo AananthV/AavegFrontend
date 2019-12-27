@@ -1,16 +1,16 @@
-import React, { Component } from 'react';  
-import { Nav, Navbar } from 'react-bootstrap';  
+import React, { Component } from 'react';
+import { Nav, Navbar } from 'react-bootstrap';
 import Login from './LoginModal'
 
 
-class NavBar extends Component {  
+class NavBar extends Component {
 	render(){
 		return <div>
 			<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
 			<Navbar.Brand href={process.env.REACT_APP_FRONT_BASE_URL}>
 				<img
 					alt=""
-					src="/images/aaveg_glyph_white.png"
+					src="/images/glyph_white.png"
 					width="30"
 					height="30"
 					className="d-inline-block align-top"
@@ -33,7 +33,7 @@ class NavBar extends Component {
 				</Navbar.Collapse>
 			</Navbar>
 		</div>
-		
+
 	}
-}  
-export default NavBar;  
+}
+export default NavBar;
