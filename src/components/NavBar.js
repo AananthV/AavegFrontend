@@ -1,10 +1,38 @@
 import React, { Component } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar,Button } from 'react-bootstrap';
 import Login from './LoginModal'
 
+const styles = {
+    // this will make sure the login button doesnot look weird in mobile nav
+    button: {
+        paddingLeft: 0,
+        paddingRight: 0
+    }
+};
 
 class NavBar extends Component {
+	constructor(props,context){
+        super(props,context);
+        this.state = {
+            isLoggedIn:false
+        }
+	}
+	componentDidMount(){
+		if(sessionStorage.getItem('user_id') && !this.state.isLoggedIn){
+			this.setState({isLoggedIn:true})
+		}
+	}
+	componentDidUpdate(){
+		if(sessionStorage.getItem('user_id') && !this.state.isLoggedIn){
+			this.setState({isLoggedIn:true})
+		}
+	}
+	logout(){
+		sessionStorage.clear()
+		this.setState({isLoggedIn:false})
+	}
 	render(){
+		var isLoggedIn = this.state.isLoggedIn
 		return <div>
 			<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
 			<Navbar.Brand href={process.env.REACT_APP_FRONT_BASE_URL}>
@@ -29,7 +57,11 @@ class NavBar extends Component {
 					<Nav>
 					<Nav.Link href={process.env.REACT_APP_FRONT_BASE_URL+"team"} >Team</Nav.Link>
 					</Nav>
-					<Nav><Login/></Nav>
+					<Nav>{isLoggedIn ? (
+						<Button variant="dark" style={styles.button} onClick={this.logout.bind(this)}>Logout</Button>
+					) : (
+						<Login/>
+					)}</Nav>
 				</Navbar.Collapse>
 			</Navbar>
 		</div>
