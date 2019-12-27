@@ -7,15 +7,17 @@ class About extends Component {
       <InnerPage>
         <Title>About</Title>
         <Text>
-          An impulse, that’s what Aaveg stands for, and it aims to caters only to the first years-it’s organised by the
-          first years and participation is limited to only the first years. An inter-hostel competition, there’s passion
-          and an undying determination to make your hostel win, that’s the spirit of Aaveg.
-          There are four major cups, the Culturals Cup, involving all the events that test your expertise in areas
-          ranging from art to dance; the Spectrum Cup, comprises a plethora of events from JAM and Minute to Win It to
-          gaming events; the Sports Cup for all the budding athletes and the talented sportsmen while the Cheering Cup
-          quantifies the camaraderie of the hostel.
-          It’s time to channel your fury and ensure that your hostel wins the most points and returns with the coveted
-          trophy and glory.
+          Aaveg is NIT Trichy’s one and only inter-hostel battle arena for the first-years.
+          Aaveg is by the first-year students, and for the first-year students.
+          There are 5 cups for which the hostels are pitted against each other:
+          The Sports Cup, where teamwork, skills, along with efforts are essential
+          to gain the trophy. The Culturals Cup, where artists, musicians, and dancers
+          showcase their mastery for this trophy. The Spectrum Cup, where a ton of fun and
+          hard events like JAM, Adzap, and Online Gaming events are held. And finally,
+          The Cheering Cup, that tests the bonds of the hostels, that observes the support
+          the hostels provide while their teams enter the stage! And the hostel with the
+          highest amount of points in the end will win the Overall Cup. So this Aaveg, call
+          upon the Abyss, and LET THE BATTLE BEGIN!
         </Text>
       </InnerPage>
     )
