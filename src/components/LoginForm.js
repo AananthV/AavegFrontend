@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import {Form, Button} from 'react-bootstrap';
+import { Redirect } from 'react-router'
 import axios from 'axios';
 const qs = require('querystring')
 
 class LoginForm extends Component {
-    constructor(props){
-        super(props);
+    constructor(props,context){
+        super(props,context);
         this.state = {
             rollno:0,
-            password:""
+            password:"",
+            redirect:false
         }
     }
     handleChange(e){
@@ -34,10 +36,16 @@ class LoginForm extends Component {
                 console.log(res.data)
                 sessionStorage.setItem('user_id', res.data.user_id);
                 sessionStorage.setItem('APIToken', res.data.APIToken);
+                this.setState({redirect:true})
+                this.props.close()
             })
     }
 
 	render(){
+        var redirect = this.state.redirect;
+        if(redirect){
+            return <Redirect to='/home'/>
+        }
 		return <div>
             <Form onSubmit={this.handleSubmit.bind(this)}>
                 <Form.Group controlId="formGroupEmail">

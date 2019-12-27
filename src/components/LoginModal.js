@@ -33,7 +33,7 @@ class Login extends Component {
                   <Modal.Header className="red-bg" closeButton>
                       Login
                   </Modal.Header>
-                  <Modal.Body className="dark-bg"><LoginForm/></Modal.Body>
+                  <Modal.Body className="dark-bg"><LoginForm close={this.handleClose.bind(this)}/></Modal.Body>
                 </Modal>
               </span>
 	}
