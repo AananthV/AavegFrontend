@@ -3,10 +3,6 @@ import { Modal,Button } from 'react-bootstrap';
 import LoginForm from './LoginForm'
 
 const styles = {
-    button: {
-        paddingLeft: 0,
-        paddingRight: 0
-    },
     modal: {
         margin:'auto',
         marginTop:'15%'
@@ -29,7 +25,7 @@ class Login extends Component {
 	}
 	render(){
         return <span>
-                <Button variant="dark" onClick={this.handleShow.bind(this)} style={styles.button}>
+                <Button variant="dark" onClick={this.handleShow.bind(this)}>
                     Login
                 </Button>
                 <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)}>
