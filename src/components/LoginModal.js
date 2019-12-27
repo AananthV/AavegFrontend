@@ -33,7 +33,10 @@ class Login extends Component {
                     Login
                 </Button>
                 <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)}>
-                  <Modal.Body><LoginForm/></Modal.Body>
+                  <Modal.Header className="red-bg" closeButton>
+                      Login
+                  </Modal.Header>
+                  <Modal.Body className="dark-bg"><LoginForm/></Modal.Body>
                 </Modal>
               </span>
 	}

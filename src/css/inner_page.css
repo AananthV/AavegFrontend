@@ -1,0 +1,19 @@
+#inner-container {
+  background-color: #292b2c;
+  border-radius: 5px;
+  box-shadow: 0 0 5px black;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+#inner-title {
+  text-align: center;
+  font-size: 3em;
+}
+
+#inner-text {
+  text-align: justify;
+  font-size: 1.2em;
+  padding: 16px;
+}

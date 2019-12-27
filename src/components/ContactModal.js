@@ -1,5 +1,5 @@
-import React, { Component } from 'react'; 
-import { Modal,Button } from 'react-bootstrap';  
+import React, { Component } from 'react';
+import { Modal,Button } from 'react-bootstrap';
 
 const styles = {
     button: {
@@ -8,10 +8,13 @@ const styles = {
     modal:{
         margin:'auto',
         marginTop:'5%'
+    },
+    modalBody: {
+        textAlign: 'center'
     }
 };
 
-class ContactModal extends Component {  
+class ContactModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,14 +30,14 @@ class ContactModal extends Component {
 	}
 	render(){
         return <span>
-            <Button variant="dark" onClick={this.handleShow.bind(this)} style={styles.button}>
+            <Button variant="outline-danger" onClick={this.handleShow.bind(this)} style={styles.button}>
                 Contact
             </Button>
             <Modal show={this.state.show} onHide={this.handleClose.bind(this)} style={styles.modal}>
-            <Modal.Header closeButton>
-                <Modal.Title>Contact</Modal.Title>
+            <Modal.Header className="red-bg" closeButton>
+                Contact
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="dark-bg" style={styles.modalBody}>
                 <div>
                     <p>Chairperson : Vijay - <a href="tel:+919791607243"> 9791607243</a></p>
                     <p>Head, OC : Toshith - <a href="tel:+919600921975">9600921975</a></p>
@@ -47,7 +50,7 @@ class ContactModal extends Component {
                 </div>
             </Modal.Body>
         </Modal>
-        </span>		
+        </span>
 	}
-}  
-export default ContactModal;  
+}
+export default ContactModal;
