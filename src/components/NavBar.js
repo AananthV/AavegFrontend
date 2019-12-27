@@ -6,7 +6,7 @@ import Login from './LoginModal'
 class NavBar extends Component {
 	render(){
 		return <div>
-			<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+			<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
 			<Navbar.Brand href={process.env.REACT_APP_FRONT_BASE_URL}>
 				<img
 					alt=""
