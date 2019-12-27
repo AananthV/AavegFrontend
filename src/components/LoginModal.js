@@ -3,9 +3,10 @@ import { Modal,Button } from 'react-bootstrap';
 import LoginForm from './LoginForm'
 
 const styles = {
-    modal: {
-        margin:'auto',
-        marginTop:'15%'
+    // this will make sure the login button doesnot look weird in mobile nav
+    button: {
+        paddingLeft: 0,
+        paddingRight: 0
     }
 };
 
@@ -25,7 +26,7 @@ class Login extends Component {
 	}
 	render(){
         return <span>
-                <Button variant="dark" onClick={this.handleShow.bind(this)}>
+                <Button variant="dark" style={styles.button} onClick={this.handleShow.bind(this)}>
                     Login
                 </Button>
                 <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)}>
