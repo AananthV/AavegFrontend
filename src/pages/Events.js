@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Tada from 'react-reveal/Tada';
-import axios from 'axios';
+import Tada from 'react-reveal/Tada'
+import axios from 'axios'
 import { Row, Col, ListGroup, Spinner } from 'react-bootstrap'
 import { InnerPage, Title } from '../components/InnerPage'
 import HoverImage from '../components/HoverImage'
@@ -25,47 +25,47 @@ const styles = {
 }
 
 class ClusterImage extends Component {
-  render() {
-    const imageUrl = process.env.REACT_APP_FRONT_BASE_URL + "images/clusters/" + this.props.cluster + ".png"
+  render () {
+    const imageUrl = process.env.REACT_APP_FRONT_BASE_URL + 'images/clusters/' + this.props.cluster + '.png'
     const title = this.props.title !== undefined ? this.props.title : this.props.cluster
     return (
       <Col xl={3} lg={4} md={6} sm={12} style={styles.colPadding}>
-        <HoverImage src={imageUrl} title={title} onClick={this.props.onClick}/>
+        <HoverImage src={imageUrl} title={title} onClick={this.props.onClick} />
       </Col>
     )
   }
 }
 
 class ClusterList extends Component {
-  render() {
+  render () {
     return (
       <Row style={styles.rowCenterAlign}>
-        <ClusterImage cluster="Arts" onClick={this.props.showCluster.bind(this.props.parent, 'Arts')}/>
-        <ClusterImage cluster="Culturals" onClick={this.props.showCluster.bind(this.props.parent, 'Culturals')}/>
-        <ClusterImage cluster="Gaming" onClick={this.props.showCluster.bind(this.props.parent, 'Gaming')}/>
-        <ClusterImage cluster="Lits" onClick={this.props.showCluster.bind(this.props.parent, 'Lits')}/>
-        <ClusterImage cluster="Media" onClick={this.props.showCluster.bind(this.props.parent, 'Media')}/>
-        <ClusterImage cluster="Misc" onClick={this.props.showCluster.bind(this.props.parent, 'Misc')}/>
-        <ClusterImage cluster="Sports" onClick={this.props.showCluster.bind(this.props.parent, 'Sports')}/>
+        <ClusterImage cluster='Arts' onClick={this.props.showCluster.bind(this.props.parent, 'Arts')} />
+        <ClusterImage cluster='Culturals' onClick={this.props.showCluster.bind(this.props.parent, 'Culturals')} />
+        <ClusterImage cluster='Gaming' onClick={this.props.showCluster.bind(this.props.parent, 'Gaming')} />
+        <ClusterImage cluster='Lits' onClick={this.props.showCluster.bind(this.props.parent, 'Lits')} />
+        <ClusterImage cluster='Media' onClick={this.props.showCluster.bind(this.props.parent, 'Media')} />
+        <ClusterImage cluster='Misc' onClick={this.props.showCluster.bind(this.props.parent, 'Misc')} />
+        <ClusterImage cluster='Sports' onClick={this.props.showCluster.bind(this.props.parent, 'Sports')} />
       </Row>
     )
   }
 }
 
 class ClusterEvents extends Component {
-  render() {
+  render () {
     return (
       <Tada>
         <Row>
-          <ClusterImage cluster={this.props.cluster} title="Back" onClick={this.props.backFunction}/>
+          <ClusterImage cluster={this.props.cluster} title='Back' onClick={this.props.backFunction} />
           <Col style={styles.columnCenterAlign}>
             <ListGroup>
-              { this.props.events.map((value, index) => {
-                  return (
-                    <ListGroup.Item action variant="dark" style={styles.textCenter} key={value}>
-                      {value}
-                    </ListGroup.Item>
-                  )
+              {this.props.events.map((value, index) => {
+                return (
+                  <ListGroup.Item action variant='dark' style={styles.textCenter} key={value}>
+                    {value}
+                  </ListGroup.Item>
+                )
               })}
             </ListGroup>
           </Col>
@@ -76,27 +76,27 @@ class ClusterEvents extends Component {
 }
 
 class Events extends Component {
-  constructor(props,context){
-      super(props,context);
-      this.state = {
-        cluster: undefined,
-        events: []
-      }
+  constructor (props, context) {
+    super(props, context)
+    this.state = {
+      cluster: undefined,
+      events: []
+    }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const cluster = this.props.match.params.cluster
-    if(cluster !== undefined) {
+    if (cluster !== undefined) {
       this.showCluster(cluster)
     }
   }
 
-  getEventsInCluster() {
+  getEventsInCluster () {
     axios.get(
       process.env.REACT_APP_API_BASE_URL + 'api/events/cluster/' + this.state.cluster
     ).then(res => {
-      let events = []
-      for (let event of res.data) {
+      const events = []
+      for (const event of res.data) {
         events.push(event._id)
       }
       this.setState({ events: events })
@@ -104,36 +104,36 @@ class Events extends Component {
     })
   }
 
-  showCluster(cluster) {
+  showCluster (cluster) {
     this.setState({ cluster: cluster }, this.getEventsInCluster)
     window.scrollTo(0, 0)
   }
 
-  goBack() {
+  goBack () {
     this.setState({ cluster: undefined, events: undefined })
   }
 
-  getPageContent() {
+  getPageContent () {
     const isCluster = this.state.cluster !== undefined
     const isEventsLoaded = this.state.events !== undefined
 
     if (isCluster) {
       if (isEventsLoaded) {
-        return (<ClusterEvents cluster={this.state.cluster} events={this.state.events} backFunction={this.goBack.bind(this)}/>)
+        return (<ClusterEvents cluster={this.state.cluster} events={this.state.events} backFunction={this.goBack.bind(this)} />)
       } else {
-        console.log("lol");
+        console.log('lol')
         return (
           <Row style={styles.rowCenterAlign}>
-            <Spinner animation="border" role="status"/>
+            <Spinner animation='border' role='status' />
           </Row>
         )
       }
     } else {
-      return (<ClusterList showCluster={this.showCluster} parent={this}/>)
+      return (<ClusterList showCluster={this.showCluster} parent={this} />)
     }
   }
 
-  render() {
+  render () {
     return (
       <InnerPage>
         <Title>Events</Title>
@@ -143,4 +143,4 @@ class Events extends Component {
   }
 }
 
-export default Events;
+export default Events

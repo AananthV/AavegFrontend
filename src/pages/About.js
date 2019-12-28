@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { InnerPage, Title, Text } from '../components/InnerPage'
 
 class About extends Component {
-  render() {
+  render () {
     return (
       <InnerPage>
         <Title>About</Title>
@@ -24,4 +24,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default About
