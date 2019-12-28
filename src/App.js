@@ -6,6 +6,7 @@ import About from './pages/About'
 import Events from './pages/Events'
 import Cluster from './pages/Cluster'
 import FourOhFour from './pages/404'
+import Scoreboard from './components/Scoreboard'
 import './css/main.css';
 
 
@@ -18,6 +19,7 @@ class App extends Component {
 					<Route exact path="/about"   component= {About}/>
 					<Route exact path="/events"   component= {Events}/>
 					<Route exact path="/events/:cluster"   component= {Events}/>
+					<Route exact path="/scoreboard"   component= {Scoreboard}/>
 					<Route component= {FourOhFour}/>
 				</Switch>
 			</Router>
