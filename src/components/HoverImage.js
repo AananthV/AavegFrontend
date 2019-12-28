@@ -3,15 +3,15 @@ import React, { Component } from 'react'
 import '../css/HoverImage.css'
 
 class HoverImage extends Component {
-  render() {
+  render () {
     return (
-      <div className="hover-image" onClick={this.props.onClick}>
-        <a href={ this.props.link }>
-          <div className="hover-image-overlay"></div>
-          <img className="hover-image-image" src={ this.props.src } alt={ this.props.title }/>
-          <div className="hover-image-details fadeIn-top">
-            <h3>{ this.props.title }</h3>
-            <p>{ this.props.description }</p>
+      <div className='hover-image' onClick={this.props.onClick}>
+        <a href={this.props.link}>
+          <div className='hover-image-overlay' />
+          <img className='hover-image-image' src={this.props.src} alt={this.props.title} />
+          <div className='hover-image-details fadeIn-top'>
+            <h3>{this.props.title}</h3>
+            <p>{this.props.description}</p>
           </div>
         </a>
       </div>

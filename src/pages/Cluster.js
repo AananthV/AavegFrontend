@@ -1,33 +1,33 @@
 import React, { Component } from 'react'
-import axios from 'axios';
+import axios from 'axios'
 import { Row, Col } from 'react-bootstrap'
 import { InnerPage, Title } from '../components/InnerPage'
 
 class Cluster extends Component {
-  constructor(props,context){
-      super(props,context);
-      this.cluster = this.props.match.params.cluster
+  constructor (props, context) {
+    super(props, context)
+    this.cluster = this.props.match.params.cluster
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getEventsInCluster()
   }
 
-  async getEventsInCluster() {
+  async getEventsInCluster () {
     axios.get(
       process.env.REACT_APP_API_BASE_URL + 'api/events/cluster/' + this.cluster
     ).then(res => {
-        console.log(res.data)
+      console.log(res.data)
     })
   }
 
-  render() {
+  render () {
     return (
       <InnerPage>
-        <Title>{ this.cluster }</Title>
+        <Title>{this.cluster}</Title>
       </InnerPage>
     )
   }
 }
 
-export default Cluster;
+export default Cluster

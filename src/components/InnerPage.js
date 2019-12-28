@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import { Container } from 'react-bootstrap'
 import Footer from './Footer'
-import '../css/inner_page.css';
+import '../css/inner_page.css'
 
 class InnerPage extends Component {
-  render() {
+  render () {
     return (
       <div>
-        <Container id="inner-container">
+        <Container id='inner-container'>
           {this.props.children}
         </Container>
-        <Footer/>
+        <Footer />
       </div>
     )
   }
 }
 
 class Title extends Component {
-  render() {
+  render () {
     return (
-      <div id="inner-title" className="red-bg">
+      <div id='inner-title' className='red-bg'>
         {this.props.children}
       </div>
     )
@@ -27,13 +27,13 @@ class Title extends Component {
 }
 
 class Text extends Component {
-  render() {
+  render () {
     return (
-      <div id="inner-text">
+      <div id='inner-text'>
         {this.props.children}
       </div>
     )
   }
 }
 
-export { InnerPage, Title, Text };
+export { InnerPage, Title, Text }
