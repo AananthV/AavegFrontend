@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { InnerPage, Title, Text } from './InnerPage'
+import { InnerPage, Title, Text } from '../components/InnerPage'
 
 class About extends Component {
   render() {
