@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
 import Chart from "chart.js";
 import {Tabs, Tab} from 'react-bootstrap';
-import { Container, Col, Row,Table } from 'react-bootstrap'
 import axios from 'axios';
-import HostelCard from '../components/HostelCard'
-import _ from 'lodash'
+import HostelCardContainer from '../components/HostelCardContainer'
+import ScoreboardTable from '../components/ScoreboardTable'
+import { InnerPage, Title } from '../components/InnerPage'
 
 const styles = {
 	canvas:{
-		maxWidth:"800px",
+		maxWidth:"900px",
 		backgroundColor:'#2c2c54',
-		margin:"auto"
+		margin:"auto",
+		marginTop:"20px",
+		marginBottom:"30px"
+	},
+	tabs:{
+		color:"#fff !important"
 	}
 }
 
@@ -198,60 +203,20 @@ class Scoreboard extends Component {
 	}
 	render() {
 		return (
-			<Container style={styles.container} >
-			<Row>
-				<Col lg={1}></Col>
-				<Col sm={12} lg={2} >
-				<HostelCard 
-				img = "agate" 
-				overall={this.state.overallData[0]} 
-				spectrum={this.state.spectrumData[0]}
-				sports={this.state.sportsData[0]}
-				culturals={this.state.culturalsData[0]}
+			<InnerPage >
+				<Title>Scoreboard</Title>
+				<HostelCardContainer 
+					overallData = {this.state.overallData}
+					spectrumData = {this.state.spectrumData}
+					sportsData = {this.state.sportsData}
+					culturalsData = {this.state.culturalsData}
+					hostels={this.state.hostels}
 				/>
-				</Col>
-				<Col sm={12} lg={2} >
-				<HostelCard 
-				img = "azurite" 
-				overall={this.state.overallData[1]} 
-				spectrum={this.state.spectrumData[1]}
-				sports={this.state.sportsData[1]}
-				culturals={this.state.culturalsData[1]}
-				/>
-				</Col>
-				<Col sm={12} lg={2} >
-				<HostelCard 
-				img = "bloodstone" 
-				overall={this.state.overallData[2]} 
-				spectrum={this.state.spectrumData[2]}
-				sports={this.state.sportsData[2]}
-				culturals={this.state.culturalsData[2]}
-				/></Col>
-				<Col sm={12} lg={2} >
-				<HostelCard 
-				img = "cobalt" 
-				overall={this.state.overallData[3]} 
-				spectrum={this.state.spectrumData[3]}
-				sports={this.state.sportsData[3]}
-				culturals={this.state.culturalsData[3]}
-				/>
-				</Col>
-				<Col sm={12} lg={2} >
-				<HostelCard 
-				img = "opal" 
-				overall={this.state.overallData[4]} 
-				spectrum={this.state.spectrumData[4]}
-				sports={this.state.sportsData[4]}
-				culturals={this.state.culturalsData[4]}
-				/>
-				</Col>
-				<Col lg={1}></Col>
-				</Row>
 				<div style={styles.canvas}>
-				<Tabs defaultActiveKey="Overall" id="uncontrolled-tab-example" onSelect={this.handleSelect.bind(this)}>
+				<Tabs style={styles.tabs} defaultActiveKey="0" id="uncontrolled-tab-example" onSelect={this.handleSelect.bind(this)}>
 				<Tab eventKey="0" title="Overall">
 					</Tab>
-					<Tab eventKey="1" title="Culturals">
+					<Tab eventKey="1" title="Culturals" >
 					</Tab>
 					<Tab eventKey="2" title="Spectrum">
 					</Tab>
@@ -263,79 +228,23 @@ class Scoreboard extends Component {
 					ref={this.chartRef}
 				/>
 			</div>
-			<Table striped bordered hover variant="dark" responsive>
-			<thead>
-				<tr>
-				<th>Culturals</th>
-				<th>{this.state.hostels[0]}</th>
-				<th>{this.state.hostels[1]}</th>
-				<th>{this.state.hostels[2]}</th>
-				<th>{this.state.hostels[3]}</th>
-				<th>{this.state.hostels[4]}</th>
-				</tr>
-			</thead>
-			<tbody>
-			{this.state.culturalsEvent.map((event, i) => {     
-				return(<tr>
-					<td>{_.get(event,'event_name')}</td>
-					<td>{_.get(event,'Agate') || 0}</td>
-					<td>{_.get(event,'Azurite') || 0}</td>
-					<td>{_.get(event,'Bloodstone') || 0}</td>
-					<td>{_.get(event,'Cobalt') || 0}</td>
-					<td>{_.get(event,'Opal') || 0}</td>
-					</tr>)
-			})}
-			</tbody>
-			</Table>
-			<Table striped bordered hover variant="dark" responsive>
-			<thead>
-				<tr>
-				<th>Spectrum</th>
-				<th>{this.state.hostels[0]}</th>
-				<th>{this.state.hostels[1]}</th>
-				<th>{this.state.hostels[2]}</th>
-				<th>{this.state.hostels[3]}</th>
-				<th>{this.state.hostels[4]}</th>
-				</tr>
-			</thead>
-			<tbody>
-			{this.state.spectrumEvent.map((event, i) => {     
-				return(<tr>
-					<td>{_.get(event,'event_name')}</td>
-					<td>{_.get(event,'Agate') || 0}</td>
-					<td>{_.get(event,'Azurite') || 0}</td>
-					<td>{_.get(event,'Bloodstone') || 0}</td>
-					<td>{_.get(event,'Cobalt') || 0}</td>
-					<td>{_.get(event,'Opal') || 0}</td>
-					</tr>)
-			})}
-			</tbody>
-			</Table>
-			<Table striped bordered hover variant="dark" responsive>
-			<thead>
-				<tr>
-				<th>Sports</th>
-				<th>{this.state.hostels[0]}</th>
-				<th>{this.state.hostels[1]}</th>
-				<th>{this.state.hostels[2]}</th>
-				<th>{this.state.hostels[3]}</th>
-				<th>{this.state.hostels[4]}</th>
-				</tr>
-			</thead>
-			<tbody>
-			{this.state.sportEvent.map((event, i) => {     
-				return(<tr>
-					<td>{_.get(event,'event_name')}</td>
-					<td>{_.get(event,'Agate') || 0}</td>
-					<td>{_.get(event,'Azurite') || 0}</td>
-					<td>{_.get(event,'Bloodstone') || 0}</td>
-					<td>{_.get(event,'Cobalt') || 0}</td>
-					<td>{_.get(event,'Opal') || 0}</td>
-					</tr>)
-			})}
-			</tbody>
-			</Table>
-			</Container>
+			<ScoreboardTable
+				title="Culturals"
+				hostels={this.state.hostels}
+				eventData={this.state.culturalsEvent}
+			/>
+			<ScoreboardTable
+				title="Spectrum"
+				hostels={this.state.hostels}
+				eventData={this.state.spectrumEvent}
+			/>
+			<ScoreboardTable
+				title="Sports"
+				hostels={this.state.hostels}
+				eventData={this.state.sportEvent}
+			/>
+			
+			</InnerPage>
 		)
 	}
 }
