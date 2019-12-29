@@ -65,11 +65,20 @@
   font-size: 0.8em;
 }
 
-@media only screen and (max-width: 790px) {
+@media only screen and (max-width: 992px) {
+  .hover-image-details h3{
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 768px) {
   .hover-image-overlay {
     opacity: 0.5!important;
   }
   .hover-image-details {
     opacity: 1!important;
+  }
+  .hover-image-details h3{
+    font-size: 1em;
   }
 }
