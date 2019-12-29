@@ -19,8 +19,18 @@ body {
   color: #f7f7f7cc;
 }
 
+.nav-tabs a {
+  color: #fff;
+  margin:auto
+}
+
+.nav-tabs a:hover {
+  color: #fff;
+  opacity:0.7
+}
+
 a {
-  color: #b82e1f
+  color: #b82e1f;
 }
 
 .dark-bg {
