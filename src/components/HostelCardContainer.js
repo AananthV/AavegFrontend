@@ -12,7 +12,7 @@ const styles = {
 class HostelCardContainer extends Component {
   render () {
     return (
-        <Row style={styles.rowCenterAlign}>
+        <Row style={styles.rowCenterAlign} className = "hostel">
             <Col xs={6} sm={4} lg={2} >
                 <HostelCard
                 img = "agate"

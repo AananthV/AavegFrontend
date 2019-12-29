@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Tada from 'react-reveal/Tada'
+import Fade from 'react-reveal/Fade'
 import axios from 'axios'
 import { Row, Col, ListGroup, Spinner } from 'react-bootstrap'
 import { InnerPage, Title } from '../components/InnerPage'
@@ -29,7 +29,7 @@ class ClusterImage extends Component {
     const imageUrl = process.env.REACT_APP_FRONT_BASE_URL + 'images/clusters/' + this.props.cluster + '.png'
     const title = this.props.title !== undefined ? this.props.title : this.props.cluster
     return (
-      <Col xl={3} lg={4} md={6} sm={12} style={styles.colPadding}>
+      <Col xl={3} md={4} xs={6} style={styles.colPadding}>
         <HoverImage src={imageUrl} title={title} onClick={this.props.onClick} />
       </Col>
     )
@@ -55,10 +55,10 @@ class ClusterList extends Component {
 class ClusterEvents extends Component {
   render () {
     return (
-      <Tada>
-        <Row>
+      <Fade>
+        <Row style={styles.rowCenterAlign}>
           <ClusterImage cluster={this.props.cluster} title='Back' onClick={this.props.backFunction} />
-          <Col style={styles.columnCenterAlign}>
+          <Col xs={12} md={true} style={styles.columnCenterAlign}>
             <ListGroup>
               {this.props.events.map((value, index) => {
                 return (
@@ -70,7 +70,7 @@ class ClusterEvents extends Component {
             </ListGroup>
           </Col>
         </Row>
-      </Tada>
+      </Fade>
     )
   }
 }

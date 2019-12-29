@@ -18,3 +18,28 @@
   font-size: 1.2em;
   padding: 16px;
 }
+
+@media only screen and (max-width: 992px) {
+  #inner-title {
+    font-size: 2em;
+  }
+
+  #inner-text {
+    text-align: justify;
+    font-size: 1em;
+    padding: 16px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #inner-title {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  #inner-text {
+    text-align: justify;
+    font-size: 1em;
+    padding: 16px;
+  }
+}
