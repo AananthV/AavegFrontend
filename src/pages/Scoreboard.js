@@ -8,7 +8,7 @@ import { InnerPage, Title } from '../components/InnerPage'
 
 const styles = {
 	canvas:{
-		maxWidth:"900px",
+		maxWidth:"100%",
 		backgroundColor:'#2c2c54',
 		margin:"auto",
 		marginTop:"20px",
@@ -43,7 +43,7 @@ class Scoreboard extends Component {
 			}
 		})
 		this.setState(
-			{overallData: 
+			{overallData:
 				[
 					res.data.total.Agate || 0,
 					res.data.total.Azurite || 0,
@@ -53,7 +53,7 @@ class Scoreboard extends Component {
 					]
 		})
 		this.setState(
-			{culturalsData: 
+			{culturalsData:
 				[
 					res.data.standings.culturals.Agate || 0,
 					res.data.standings.culturals.Azurite || 0,
@@ -63,7 +63,7 @@ class Scoreboard extends Component {
 					]
 		})
 		this.setState(
-			{spectrumData: 
+			{spectrumData:
 				[
 					res.data.standings.spectrum.Agate || 0,
 					res.data.standings.spectrum.Azurite || 0,
@@ -73,7 +73,7 @@ class Scoreboard extends Component {
 					]
 		})
 		this.setState(
-			{sportsData: 
+			{sportsData:
 				[
 					res.data.standings.sports.Agate || 0,
 					res.data.standings.sports.Azurite || 0,
@@ -91,7 +91,7 @@ class Scoreboard extends Component {
 	}
 	drawChart(barChartData){
 		const myChartRef = this.chartRef.current.getContext("2d");
-		
+
 		new Chart(myChartRef, {
 			type: "bar",
 			data: barChartData,
@@ -157,7 +157,7 @@ class Scoreboard extends Component {
 				backgroundColor: '#75dddd',
 				data: this.state.spectrumData
 			}]
-			
+
 			}
 		var barChartDataCulturals = {
 			labels: this.state.hostels,
@@ -166,7 +166,7 @@ class Scoreboard extends Component {
 				backgroundColor: '#09bc8a',
 				data: this.state.culturalsData
 			}]
-			
+
 		}
 			var barChartDataSpectrum = {
 			labels: this.state.hostels,
@@ -175,7 +175,7 @@ class Scoreboard extends Component {
 				backgroundColor: '#75dddd',
 				data: this.state.spectrumData
 			}]
-			
+
 		}
 			var barChartDataSports = {
 			labels: this.state.hostels,
@@ -184,7 +184,6 @@ class Scoreboard extends Component {
 				backgroundColor: '#f49d6e',
 				data: this.state.sportsData
 			}]
-			
 		}
 		if (tab === 0){
 			this.drawChart(barChartData)
@@ -198,14 +197,14 @@ class Scoreboard extends Component {
 		if (tab === 3){
 			this.drawChart(barChartDataSports)
 		}
-		
-		
+
+
 	}
 	render() {
 		return (
 			<InnerPage >
 				<Title>Scoreboard</Title>
-				<HostelCardContainer 
+				<HostelCardContainer
 					overallData = {this.state.overallData}
 					spectrumData = {this.state.spectrumData}
 					sportsData = {this.state.sportsData}
@@ -213,37 +212,33 @@ class Scoreboard extends Component {
 					hostels={this.state.hostels}
 				/>
 				<div style={styles.canvas}>
-				<Tabs style={styles.tabs} defaultActiveKey="0" id="uncontrolled-tab-example" onSelect={this.handleSelect.bind(this)}>
-				<Tab eventKey="0" title="Overall">
-					</Tab>
-					<Tab eventKey="1" title="Culturals" >
-					</Tab>
-					<Tab eventKey="2" title="Spectrum">
-					</Tab>
-					<Tab eventKey="3" title="Sports">
-					</Tab>
-				</Tabs>
-				<canvas
-					id="myChart"
-					ref={this.chartRef}
+					<Tabs style={styles.tabs} defaultActiveKey="0" id="uncontrolled-tab-example" onSelect={this.handleSelect.bind(this)}>
+						<Tab eventKey="0" title="Overall"/>
+						<Tab eventKey="1" title="Culturals"/>
+						<Tab eventKey="2" title="Spectrum"/>
+						<Tab eventKey="3" title="Sports"/>
+					</Tabs>
+					<canvas
+						id="myChart"
+						ref={this.chartRef}
+					/>
+				</div>
+				<ScoreboardTable
+					title="Culturals"
+					hostels={this.state.hostels}
+					eventData={this.state.culturalsEvent}
 				/>
-			</div>
-			<ScoreboardTable
-				title="Culturals"
-				hostels={this.state.hostels}
-				eventData={this.state.culturalsEvent}
-			/>
-			<ScoreboardTable
-				title="Spectrum"
-				hostels={this.state.hostels}
-				eventData={this.state.spectrumEvent}
-			/>
-			<ScoreboardTable
-				title="Sports"
-				hostels={this.state.hostels}
-				eventData={this.state.sportEvent}
-			/>
-			
+				<ScoreboardTable
+					title="Spectrum"
+					hostels={this.state.hostels}
+					eventData={this.state.spectrumEvent}
+				/>
+				<ScoreboardTable
+					title="Sports"
+					hostels={this.state.hostels}
+					eventData={this.state.sportEvent}
+				/>
+
 			</InnerPage>
 		)
 	}
