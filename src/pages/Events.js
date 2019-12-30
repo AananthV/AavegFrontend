@@ -61,9 +61,10 @@ class ClusterEvents extends Component {
           <Col xs={12} md={true} style={styles.columnCenterAlign}>
             <ListGroup>
               {this.props.events.map((value, index) => {
+                const event_link = process.env.REACT_APP_FRONT_BASE_URL + 'events/' + value._id
                 return (
-                  <ListGroup.Item action variant='dark' style={styles.textCenter} key={value}>
-                    {value}
+                  <ListGroup.Item action variant='dark' style={styles.textCenter} key={value._id} href={event_link}>
+                    {value.name}
                   </ListGroup.Item>
                 )
               })}
@@ -97,7 +98,7 @@ class Events extends Component {
     ).then(res => {
       const events = []
       for (const event of res.data) {
-        events.push(event._id)
+        events.push(event.details[0])
       }
       this.setState({ events: events })
       console.log('lol3', res.data)

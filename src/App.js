@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import About from './pages/About'
 import Events from './pages/Events'
+import EventDetails from './pages/EventDetails'
 import FourOhFour from './pages/404'
 import Scoreboard from './pages/Scoreboard'
 import './css/main.css'
@@ -17,7 +18,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/about' component={About} />
           <Route exact path='/events' component={Events} />
-          <Route exact path='/events/:cluster' component={Events} />
+          <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />
           <Route exact path='/scoreboard' component={Scoreboard} />
           <Route exact path='/admin/create_event' component={KeyboardDatePickerExample} />
