@@ -8,7 +8,7 @@ import EventDetails from './pages/EventDetails'
 import FourOhFour from './pages/404'
 import Scoreboard from './pages/Scoreboard'
 import './css/main.css'
-import KeyboardDatePickerExample from './admin/CreateEvent'
+import CreateEvent from './admin/CreateEvent'
 
 class App extends Component {
   render () {
@@ -21,7 +21,7 @@ class App extends Component {
           <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />
           <Route exact path='/scoreboard' component={Scoreboard} />
-          <Route exact path='/admin/create_event' component={KeyboardDatePickerExample} />
+          <Route exact path='/admin/create_event' component={CreateEvent} />
           <Route component={FourOhFour} />
         </Switch>
       </Router>

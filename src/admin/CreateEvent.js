@@ -26,26 +26,24 @@ class CreateEvent extends Component {
     constructor (props, context) {
         super(props, context)
         this.state = {
-            startTime:new Date(),
-            endTime:new Date(),
-            name:"NAMw",
-            cup:"Culturals",
-            cluster:"Arts",
-            venue:"5e086abf6ee08c326e67c023",
-            rules:"VI",
-            description:"K",
-            points:[10,5,2],
+            startTime:new Date().toString(),
+            endTime:new Date().toString(),
+            name:"",
+            cup:"",
+            cluster:"",
+            venue:"",
+            rules:"",
+            description:"",
+            points:[],
             error:false,
             success:false,
             errors:[]
         }
     }
     handleStartTime(e,s){
-        console.log(s)
         this.setState({startTime:s})
     }
     handleEndTime(e,s){
-        console.log(s)
         this.setState({endTime:s})
     }
     handleChange (e) {
@@ -84,7 +82,6 @@ class CreateEvent extends Component {
             APIToken:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjExNDExODEwMCIsInRpbWUiOjE1Nzc3MDYwOTE0MDMsImlhdCI6MTU3NzcwNjA5MX0.kLtkYvLfSVFReklNttPK3zJn9hXSURsge2GObUQhw0I'//localStorage.getItem('APIToken') || 0
 
         }
-        console.log(event)
         axios.post('http://localhost:4000/api/admin/events/create', qs.stringify(event), {
         headers: {
             'Content-type': 'application/x-www-form-urlencoded'
@@ -110,7 +107,6 @@ class CreateEvent extends Component {
     }
 
     render () {
-        console.log(this.state)
         let error = this.state.error ? <Alert variant="danger" style={styles.alert}>Failed to create new event</Alert> : null
         let success = this.state.success ? <Alert variant="success" style={styles.alert}>Successfully created new event</Alert> : null
         return(
