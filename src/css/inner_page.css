@@ -9,8 +9,11 @@
 }
 
 #inner-title {
-  text-align: center;
-  font-size: 3em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
 }
 
 #inner-text {
