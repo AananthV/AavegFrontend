@@ -26,8 +26,7 @@ class CreateEvent extends Component {
     constructor (props, context) {
         super(props, context)
         this.state = {
-            startTime:new Date().toString(),
-            endTime:new Date().toString(),
+            startTime:new Date().toISOString(),
             name:"",
             cup:"",
             cluster:"",
@@ -41,10 +40,8 @@ class CreateEvent extends Component {
         }
     }
     handleStartTime(e,s){
+        let startTime = new Date(s)
         this.setState({startTime:s})
-    }
-    handleEndTime(e,s){
-        this.setState({endTime:s})
     }
     handleChange (e) {
         if(e.target.id==="name"){
@@ -77,9 +74,8 @@ class CreateEvent extends Component {
             rules:this.state.rules,
             description:this.state.description,
             startTime:this.state.startTime,
-            endTime:this.state.endTime,
             points:this.state.points,
-            APIToken:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjExNDExODEwMCIsInRpbWUiOjE1Nzc3MDYwOTE0MDMsImlhdCI6MTU3NzcwNjA5MX0.kLtkYvLfSVFReklNttPK3zJn9hXSURsge2GObUQhw0I'//localStorage.getItem('APIToken') || 0
+            APIToken:sessionStorage.getItem('APIToken') || 0
 
         }
         axios.post('http://localhost:4000/api/admin/events/create', qs.stringify(event), {
@@ -101,8 +97,8 @@ class CreateEvent extends Component {
             this.setState({error:true})
             this.setState({errors:[]})
             this.setState({success:false})
-            
-        }            
+
+        }
         )
     }
 
@@ -156,11 +152,8 @@ class CreateEvent extends Component {
                         />
                     </Form.Group>
                         <Row>
-                            <Col lg={4} md={6} sm={6} style={styles.col}>
+                            <Col lg={8} md={12} sm={12} style={styles.col}>
                                 <DateTime value={this.state.startTime} onChangeProp={this.handleStartTime.bind(this)}/>
-                            </Col>
-                            <Col lg={4} md={6} sm={6} style={styles.col}>
-                                <DateTime value={this.state.endTime}  onChangeProp={this.handleEndTime.bind(this)}/>
                             </Col>
                             <Col lg={4} md={12}>
                                 <Button variant="info" type="submit" style={styles.button}>
