@@ -64,11 +64,13 @@ class PointsTable extends Component {
 
 class TimeVenueRules extends Component {
   render() {
+    const date = this.props.date.split('T')[0]
+    const time = (new Date(this.props.time.split('T'))).toLocaleTimeString()
     return (
       <Row className="justify-content-around pb-3 p-md-0">
         <IconButton icon="fa fa-map-marker fa-2x">{this.props.venue}</IconButton>
-        <IconButton icon="fa fa-calendar fa-2x">{this.props.date}</IconButton>
-        <IconButton icon="fa fa-clock-o fa-2x">{this.props.time}</IconButton>
+        <IconButton icon="fa fa-calendar fa-2x">{date}</IconButton>
+        <IconButton icon="fa fa-clock-o fa-2x">{time}</IconButton>
         <a style={{ color: "#f7f7f7cc" }} href={this.props.rules}>
           <IconButton icon="fa fa-book fa-2x">Rules</IconButton>
         </a>
