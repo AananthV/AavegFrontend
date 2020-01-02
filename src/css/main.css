@@ -28,6 +28,17 @@ body {
   color: #fff;
   opacity:0.7
 }
+.MuiFormControl-root{
+  background-color:whitesmoke;
+  color:black;
+  border-radius:8px;
+  padding:8px !important;
+  text-align: center;
+  width:100%;
+}
+.MuiFormControl-root label{
+  padding:10px !important
+}
 
 a {
   color: #b82e1f;
@@ -39,4 +50,10 @@ a {
 
 .red-bg {
   background-color: #b82e1f
+}
+
+@media screen and (max-width: 350px) {
+  .hostel {
+    font-size:13px !important
+  }
 }
