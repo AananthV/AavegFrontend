@@ -8,8 +8,10 @@ import Team from './pages/Team'
 import EventDetails from './pages/EventDetails'
 import FourOhFour from './pages/404'
 import Scoreboard from './pages/Scoreboard'
-import './css/main.css'
 import CreateEvent from './admin/CreateEvent'
+import AddScore from './admin/Scoreboard'
+import './css/main.css'
+
 
 class App extends Component {
   render () {
@@ -22,7 +24,7 @@ class App extends Component {
           <Route exact path='/events' component={Events} />
           <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />
-          <Route exact path='/scoreboard' component={Scoreboard} />
+          <Route exact path='/admin/scoreboard' component={AddScore} />
           <Route exact path='/admin/create_event' component={CreateEvent} />
           <Route component={FourOhFour} />
         </Switch>
