@@ -36,13 +36,26 @@ class CreateEvent extends Component {
             points:[],
             error:false,
             success:false,
-            errors:[]
+            errors:[],
+            numPoints:[]
         }
     }
     handleStartTime(e,s){
         let startTime = new Date(s)
         this.setState({startTime:s})
     }
+
+    addField(e){
+        var numPoints = [...this.state.numPoints]
+        if(numPoints.length>0){
+            numPoints.push(numPoints[numPoints.length-1]+1)
+        }
+        else{
+            numPoints.push(4)
+        }
+        this.setState({numPoints:numPoints})
+    }
+
     handleChange (e) {
         if(e.target.id==="name"){
             this.setState({name:e.target.value})
@@ -61,6 +74,11 @@ class CreateEvent extends Component {
         }
         else if(e.target.id==="description"){
             this.setState({description:e.target.value})
+        }
+        else if(e.target.name==="points"){
+            var arr = [...this.state.points]
+            arr[parseInt(e.target.id)-1]=e.target.value
+            this.setState({points:arr})
         }
     }
 
@@ -129,6 +147,29 @@ class CreateEvent extends Component {
                         </Form.Control>
                     </Form.Group>
                     </Form.Row>
+                    <div id="p">
+                    <Button variant="info" onClick={this.addField.bind(this)}>Add more points</Button>
+                    <Form.Group>
+                        <Form.Label>1st place</Form.Label>
+                        <Form.Control name="points" id="1" placeholder="1st Place" onChange={this.handleChange.bind(this)}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>2nd place</Form.Label>
+                        <Form.Control name="points" id="2" placeholder="2nd Place" onChange={this.handleChange.bind(this)}/>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>3rd place</Form.Label>
+                        <Form.Control name="points" id="3" placeholder="3rd Place" onChange={this.handleChange.bind(this)}/>
+                    </Form.Group>
+                    {(this.state.numPoints).map((item,index)=>{
+                        return (
+                            <Form.Group>
+                        <Form.Label>{item} Place</Form.Label>
+                        <Form.Control name="points" id={item} placeholder={item+"th Place"} onChange={this.handleChange.bind(this)}/>
+                        </Form.Group>
+                        )
+                    })}
+                    </div>
                     <Form.Row>
                     <Form.Group as={Col} controlId="venue">
                         <Form.Label>Venue</Form.Label>
