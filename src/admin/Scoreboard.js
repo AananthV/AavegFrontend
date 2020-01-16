@@ -4,7 +4,6 @@ import Select from 'react-select'
 import axios from 'axios'
 import DateTime from '../components/DateTime'
 import { InnerPage, Title } from '../components/InnerPage'
-import '../css/bootstrap-multiselect.css'
 const qs = require('querystring')
 
 const styles = {
