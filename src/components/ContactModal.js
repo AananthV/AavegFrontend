@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Nav } from 'react-bootstrap'
 
 const styles = {
   button: {
     margin: '10px'
+  },
+  nav_link: {
+    color: 'white'
   },
   modal: {
     margin: 'auto',
@@ -32,10 +35,10 @@ class ContactModal extends Component {
 
   render () {
     return <span>
-      <Button variant='outline-danger' onClick={this.handleShow.bind(this)} style={styles.button}>
+      <Nav.Link onClick={this.handleShow.bind(this)} style={styles.nav_link}>
                 Contact
-      </Button>
-      <Modal show={this.state.show} onHide={this.handleClose.bind(this)} style={styles.modal}>
+      </Nav.Link>
+      <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)} style={styles.modal}>
         <Modal.Header className='red-bg' closeButton>
                 Contact
         </Modal.Header>
