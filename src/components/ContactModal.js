@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 
 const styles = {
   button: {
-    margin: '10px'
+    margin: '10px',
+    padding: '7px',
+    borderRadius: '8px',
+    border: 'none',
+    color: (localStorage.getItem('hostel') === 'opal' || localStorage.getItem('hostel') === 'cobalt') ? 'black' : '#f2e7e6'
   },
   modal: {
     margin: 'auto',
@@ -32,11 +36,11 @@ class ContactModal extends Component {
 
   render () {
     return <span>
-      <Button variant='outline-danger' onClick={this.handleShow.bind(this)} style={styles.button}>
+      <button className={localStorage.getItem('hostel') + '-bg'} onClick={this.handleShow.bind(this)} style={styles.button}>
                 Contact
-      </Button>
+      </button>
       <Modal show={this.state.show} onHide={this.handleClose.bind(this)} style={styles.modal}>
-        <Modal.Header className='red-bg' closeButton>
+        <Modal.Header style={{ fontSize: '28px', border: 'none' }} className={localStorage.getItem('hostel') + '-bg'} closeButton>
                 Contact
         </Modal.Header>
         <Modal.Body className='dark-bg' style={styles.modalBody}>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Nav, Navbar, Button } from 'react-bootstrap'
 import Login from './LoginModal'
+import ChooseHostel from './ChooseHostel'
 
 const styles = {
   // this will make sure the login button doesnot look weird in mobile nav
@@ -57,6 +58,9 @@ class NavBar extends Component {
             <Nav.Link href={process.env.REACT_APP_FRONT_BASE_URL + 'scoreboard'}>Scoreboard</Nav.Link>
             <Nav.Link href='https://medium.com/aaveg-blog'>Blog</Nav.Link>
             <Nav.Link href={process.env.REACT_APP_FRONT_BASE_URL + 'sponsors'}>Sponsors</Nav.Link>
+            <Nav>
+              <ChooseHostel />
+            </Nav>
           </Nav>
           <Nav>
             <Nav.Link href={process.env.REACT_APP_FRONT_BASE_URL + 'team'}>Team</Nav.Link>

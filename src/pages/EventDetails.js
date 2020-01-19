@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Button, ButtonGroup, Table, ListGroup, Spinner } from 'react-bootstrap'
+import { Row, Col, Table, Spinner } from 'react-bootstrap'
 import axios from 'axios'
 import 'font-awesome/css/font-awesome.min.css'
 import { InnerPage, Title, Text } from '../components/InnerPage'
@@ -8,7 +8,7 @@ class ImageButton extends Component {
   render () {
     return (
       <div className='d-flex flex-column align-items-center'>
-        <img src={this.props.src} style={{ height: '2em', marginTop: '20px', marginBottom: '4px' }} />
+        <img src={this.props.src} style={{ height: '2em', marginTop: '20px', marginBottom: '4px' }} alt='img' />
         {this.props.children}
       </div>
     )

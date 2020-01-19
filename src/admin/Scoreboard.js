@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Form, Button, Col, Row, Alert } from 'react-bootstrap'
+import { Form, Button, Col, Alert } from 'react-bootstrap'
 import Select from 'react-select'
 import axios from 'axios'
-import DateTime from '../components/DateTime'
 import { InnerPage, Title } from '../components/InnerPage'
 const qs = require('querystring')
 
@@ -116,7 +115,7 @@ class AddScore extends Component {
       }
       for (const p in this.state.events[e.value].points) {
         const _p = parseInt(p) + 1
-        if (positionInputs[_p] == undefined) {
+        if (positionInputs[_p] === undefined) {
           positionInputs[_p] = this.createHostelSelect(
             _p,
             this.state.events[e.value].points[p],

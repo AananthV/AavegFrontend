@@ -1,5 +1,5 @@
 import React from 'react'
-import { KeyboardDateTimePicker, KeyboardTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
+import { KeyboardDateTimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 
 import DateFnsUtils from '@date-io/date-fns'
 

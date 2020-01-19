@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Button, Col, Row, Card } from 'react-bootstrap'
+import { Container, Col, Row, Card } from 'react-bootstrap'
 import 'font-awesome/css/font-awesome.min.css'
 import ContactModal from './ContactModal'
 
@@ -11,14 +11,17 @@ const styles = {
     height: '50px',
     borderRadius: '50%',
     textDecoration: 'none',
-    margin: '5px'
+    marginBottom: '10px',
+    border: 'none',
+    color: (localStorage.getItem('hostel') === 'opal' || localStorage.getItem('hostel') === 'cobalt') ? 'black' : '#f2e7e6'
   },
   col: {
     marginBottom: '5px'
   },
   delta: {
     textAlign: 'center',
-    padding: '2px'
+    padding: '2px',
+    backgroundColor: 'black'
   },
   darkCard: {
     backgroundColor: '#292b2c'
@@ -48,12 +51,24 @@ class Footer extends Component {
             <Card.Header as='h5'>Reach Us</Card.Header>
             <Card.Body>
               <Card.Text>
-                <Button variant='outline-danger' style={styles.icon} href='https://www.instagram.com/aaveg.nitt/' className='fa fa-instagram' />
-                <Button variant='outline-danger' style={styles.icon} href='https://www.facebook.com/aaveg.nitt' className='fa fa-facebook' />
-                <Button variant='outline-danger' style={styles.icon} href='https://www.youtube.com/channel/UC6RY84pojMJ0HP6wHkFeW-A' className='fa fa-youtube' />
-                <Button variant='outline-danger' style={styles.icon} href='https://medium.com/aaveg-blog' className='fa fa-medium' />
-                <Button variant='outline-danger' style={styles.icon} href='https://be.net/aavegdesign' className='fa fa-behance' />
-                <Button variant='outline-danger' style={styles.icon} href='https://linktr.ee/aaveg.nitt' className='fa fa-external-link' />
+                <a href='https://www.instagram.com/aaveg.nitt/' style={styles.icon}>
+                  <button style={styles.icon} className={localStorage.getItem('hostel') + '-bg fa fa-instagram'} />
+                </a>
+                <a href='https://www.facebook.com/aaveg.nitt' style={styles.icon}>
+                  <button style={styles.icon} className={localStorage.getItem('hostel') + '-bg fa fa-facebook'} />
+                </a>
+                <a href='https://www.youtube.com/channel/UC6RY84pojMJ0HP6wHkFeW-A' style={styles.icon}>
+                  <button style={styles.icon} className={localStorage.getItem('hostel') + '-bg fa fa-youtube'} />
+                </a>
+                <a href='https://medium.com/aaveg-blog' style={styles.icon}>
+                  <button style={styles.icon} className={localStorage.getItem('hostel') + '-bg fa fa-medium'} />
+                </a>
+                <a href='https://be.net/aavegdesign' style={styles.icon}>
+                  <button style={styles.icon} className={localStorage.getItem('hostel') + '-bg fa fa-behance'} />
+                </a>
+                <a href='https://linktr.ee/aaveg.nitt' style={styles.icon}>
+                  <button style={styles.icon} className={localStorage.getItem('hostel') + '-bg fa fa-external-link'} />
+                </a>
                 <br />
                 <ContactModal />
               </Card.Text>
@@ -63,7 +78,7 @@ class Footer extends Component {
       </Row>
       <p style={styles.delta}>
 					&copy; Aaveg 2020. Made with &hearts; by
-        <a href='https://delta.nitt.edu'> Delta Force</a> & Aaveg Design Team.
+        <a href='https://delta.nitt.edu'> <span style={{ color: 'green', textDecoration: 'none' }}>Delta Force</span></a> & Aaveg Design Team.
       </p>
            </Container>
   }

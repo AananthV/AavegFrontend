@@ -15,7 +15,7 @@
 body {
   min-height: 100vh;
   background-color: #000000;
-  background-image: linear-gradient(315deg, #000000 0%, #b82e1f 90%);
+  background-image: linear-gradient(315deg, #000000 0%);
   color: #f7f7f7cc;
 }
 
@@ -48,9 +48,28 @@ a {
   background-color: #292b2c;
 }
 
-.red-bg {
+.agate-bg {
+  background-color: #2a34c4
+}
+.azurite-bg {
+  background-color: #2e4800
+}
+.bloodstone-bg {
   background-color: #b82e1f
 }
+.cobalt-bg {
+  background-color: #e9e9e9;
+  color:black
+}
+.opal-bg {
+  background-color: #ffe399;
+  color:black
+}
+
+.modal-content{
+  border:none
+}
+
 
 @media screen and (max-width: 350px) {
   .hostel {

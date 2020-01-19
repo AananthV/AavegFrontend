@@ -19,7 +19,7 @@ class InnerPage extends Component {
 class Title extends Component {
   render () {
     return (
-      <div id='inner-title' className='red-bg'>
+      <div id='inner-title' className={localStorage.getItem('hostel') + '-bg'}>
         {this.props.children}
       </div>
     )

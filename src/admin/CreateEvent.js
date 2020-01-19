@@ -69,7 +69,6 @@ class CreateEvent extends Component {
   }
 
   handleStartTime (e, s) {
-    const startTime = new Date(s)
     this.setState({ startTime: s })
   }
 
