@@ -4,7 +4,7 @@ import oc_data from '../team/oc'
 import content_data from '../team/content'
 import design_data from '../team/design'
 import webOps_data from '../team/webops'
-import { Row, Col, Container, Card } from 'react-bootstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 import ProfileImage from './../components/Image'
 
 const styles = {

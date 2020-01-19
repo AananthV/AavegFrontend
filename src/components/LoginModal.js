@@ -32,7 +32,7 @@ class Login extends Component {
                     Login
       </Button>
       <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)}>
-        <Modal.Header className='red-bg' closeButton>
+        <Modal.Header style={{ fontSize: '28px', border: 'none' }} className={localStorage.getItem('hostel') + '-bg'} closeButton>
                       Login
         </Modal.Header>
         <Modal.Body className='dark-bg'><LoginForm close={this.handleClose.bind(this)} /></Modal.Body>
