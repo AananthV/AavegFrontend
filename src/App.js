@@ -12,7 +12,6 @@ import CreateEvent from './admin/CreateEvent'
 import AddScore from './admin/Scoreboard'
 import './css/main.css'
 
-
 class App extends Component {
   render () {
     return (

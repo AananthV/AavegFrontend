@@ -58,7 +58,7 @@ class ClusterEvents extends Component {
       <Fade>
         <Row style={styles.rowCenterAlign}>
           <ClusterImage cluster={this.props.cluster} title='Back' onClick={this.props.backFunction} />
-          <Col xs={12} md={true} style={styles.columnCenterAlign}>
+          <Col xs={12} md style={styles.columnCenterAlign}>
             <ListGroup>
               {this.props.events.map((value, index) => {
                 const event_link = process.env.REACT_APP_FRONT_BASE_URL + 'events/' + value._id

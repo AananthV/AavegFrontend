@@ -5,10 +5,10 @@ import 'font-awesome/css/font-awesome.min.css'
 import { InnerPage, Title, Text } from '../components/InnerPage'
 
 class ImageButton extends Component {
-  render() {
+  render () {
     return (
-      <div className="d-flex flex-column align-items-center">
-        <img src={this.props.src} style={{ height: "2em", marginTop:"20px", marginBottom: "4px" }}/>
+      <div className='d-flex flex-column align-items-center'>
+        <img src={this.props.src} style={{ height: '2em', marginTop: '20px', marginBottom: '4px' }} />
         {this.props.children}
       </div>
     )
@@ -16,10 +16,10 @@ class ImageButton extends Component {
 }
 
 class IconButton extends Component {
-  render() {
+  render () {
     return (
-      <div className="d-flex flex-column align-items-center">
-        <i className={this.props.icon}></i>
+      <div className='d-flex flex-column align-items-center'>
+        <i className={this.props.icon} />
         {this.props.children}
       </div>
     )
@@ -27,20 +27,20 @@ class IconButton extends Component {
 }
 
 class ClusterCupDetails extends Component {
-  render() {
+  render () {
     return (
-      <Row className="justify-content-around">
-        <ImageButton src="/images/Cup.png">{this.props.cup}</ImageButton>
-        <ImageButton src="/images/Cluster.png">{this.props.cluster}</ImageButton>
+      <Row className='justify-content-around'>
+        <ImageButton src='/images/Cup.png'>{this.props.cup}</ImageButton>
+        <ImageButton src='/images/Cluster.png'>{this.props.cluster}</ImageButton>
       </Row>
     )
   }
 }
 
 class PointsTable extends Component {
-  render() {
+  render () {
     return (
-      <Table className="m-0" striped bordered hover variant="dark">
+      <Table className='m-0' striped bordered hover variant='dark'>
         <thead>
           <tr>
             <th>#</th>
@@ -63,16 +63,16 @@ class PointsTable extends Component {
 }
 
 class TimeVenueRules extends Component {
-  render() {
+  render () {
     const date = this.props.date
     const time = this.props.time
     return (
-      <Row className="justify-content-around pb-3 p-md-0">
-        <IconButton icon="fa fa-map-marker fa-2x">{this.props.venue}</IconButton>
-        <IconButton icon="fa fa-calendar fa-2x">{date}</IconButton>
-        <IconButton icon="fa fa-clock-o fa-2x">{time}</IconButton>
-        <a style={{ color: "#f7f7f7cc" }} href={this.props.rules}>
-          <IconButton icon="fa fa-book fa-2x">Rules</IconButton>
+      <Row className='justify-content-around pb-3 p-md-0'>
+        <IconButton icon='fa fa-map-marker fa-2x'>{this.props.venue}</IconButton>
+        <IconButton icon='fa fa-calendar fa-2x'>{date}</IconButton>
+        <IconButton icon='fa fa-clock-o fa-2x'>{time}</IconButton>
+        <a style={{ color: '#f7f7f7cc' }} href={this.props.rules}>
+          <IconButton icon='fa fa-book fa-2x'>Rules</IconButton>
         </a>
       </Row>
     )
@@ -102,7 +102,7 @@ class EventDetails extends Component {
       console.log(res)
       if (res.data.length > 0) {
         this.setState({ loaded: true, event: res.data[0].details[0] })
-        console.log(res.data[0].details[0]);
+        console.log(res.data[0].details[0])
       }
     })
   }
@@ -112,18 +112,19 @@ class EventDetails extends Component {
       return (
         <InnerPage>
           <Title>{this.state.event.name}</Title>
-          <ClusterCupDetails cluster={this.state.event.cluster} cup={this.state.event.cup}/>
+          <ClusterCupDetails cluster={this.state.event.cluster} cup={this.state.event.cup} />
           <Text>{this.state.event.description}</Text>
-          <Row className="p-3 flex-column-reverse flex-md-row">
+          <Row className='p-3 flex-column-reverse flex-md-row'>
             <Col lg={4} md={6}>
-              <PointsTable points={this.state.event.points}/>
+              <PointsTable points={this.state.event.points} />
             </Col>
-            <Col className="d-flex flex-column justify-content-center">
+            <Col className='d-flex flex-column justify-content-center'>
               <TimeVenueRules
                 venue={this.state.event.venue}
                 date={this.state.event.date}
                 time={this.state.event.startTime}
-                rules={this.state.event.rules}/>
+                rules={this.state.event.rules}
+              />
             </Col>
           </Row>
         </InnerPage>
