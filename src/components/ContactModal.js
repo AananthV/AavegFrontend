@@ -9,6 +9,9 @@ const styles = {
     border: 'none',
     color: (localStorage.getItem('hostel') === 'opal' || localStorage.getItem('hostel') === 'cobalt') ? 'black' : '#f2e7e6'
   },
+  nav_link: {
+    color: 'white'
+  },
   modal: {
     margin: 'auto',
     marginTop: '5%'

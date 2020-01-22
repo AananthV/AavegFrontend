@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Nav, Button } from 'react-bootstrap'
 import LoginForm from './LoginForm'
 
 const styles = {
   // this will make sure the login button doesnot look weird in mobile nav
   button: {
+    opacity: '0.5',
     paddingLeft: 0,
     paddingRight: 0
   }
@@ -28,9 +29,9 @@ class Login extends Component {
 
   render () {
     return <span>
-      <Button variant='dark' style={styles.button} onClick={this.handleShow.bind(this)}>
+      <Nav.Link onClick={this.handleShow.bind(this)}>
                     Login
-      </Button>
+      </Nav.Link>
       <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)}>
         <Modal.Header style={{ fontSize: '28px', border: 'none' }} className={localStorage.getItem('hostel') + '-bg'} closeButton>
                       Login

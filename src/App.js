@@ -6,10 +6,11 @@ import About from './pages/About'
 import Events from './pages/Events'
 import Team from './pages/Team'
 import EventDetails from './pages/EventDetails'
-import FourOhFour from './pages/404'
 import Scoreboard from './pages/Scoreboard'
 import CreateEvent from './admin/CreateEvent'
 import AddScore from './admin/Scoreboard'
+import Home from './pages/Home'
+import FourOhFour from './pages/404'
 import './css/main.css'
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
       <Router>
         <Route path='/' component={NavBar} />
         <Switch>
+          <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
           <Route exact path='/team' component={Team} />
           <Route exact path='/events' component={Events} />

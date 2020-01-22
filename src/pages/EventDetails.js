@@ -3,6 +3,7 @@ import { Row, Col, Table, Spinner } from 'react-bootstrap'
 import axios from 'axios'
 import 'font-awesome/css/font-awesome.min.css'
 import { InnerPage, Title, Text } from '../components/InnerPage'
+const config = require('../config.js')
 
 class ImageButton extends Component {
   render () {
@@ -97,7 +98,7 @@ class EventDetails extends Component {
 
   getEventDetails (event_id) {
     axios.get(
-      process.env.REACT_APP_API_BASE_URL + 'api/events/' + event_id
+      config.REACT_APP_API_BASE_URL + 'api/events/' + event_id
     ).then(res => {
       console.log(res)
       if (res.data.length > 0) {

@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Nav, Button, Row, Col } from 'react-bootstrap'
 import 'font-awesome/css/font-awesome.min.css'
 import '../css/choooseHostel.css'
+const config = require('../config.js')
 
 const styles = {
   button: {
-    marginTop: '7px',
     opacity: '0.5',
-    padding: 0
+    paddingLeft: 0,
+    paddingRight: 0,
+    marginRight: '8px'
   },
   modal: {
     margin: 'auto',
@@ -15,6 +17,10 @@ const styles = {
   },
   modalBody: {
     textAlign: 'center'
+  },
+  rowCenterAlign: {
+    display: 'flex',
+    justifyContent: 'space-around'
   }
 }
 
@@ -36,7 +42,6 @@ class ChooseHostel extends Component {
   }
 
   check (e) {
-    console.log(e.target)
     this.setState({ clicked: e.target.id })
     this.setState({ key: e.target.className })
   }
@@ -50,25 +55,35 @@ class ChooseHostel extends Component {
   }
 
   imgUrl (img) {
-    return process.env.REACT_APP_FRONT_BASE_URL + 'images/hostels/' + img.item + '.jpg'
+    return config.REACT_APP_FRONT_BASE_URL + 'images/hostels/' + img.item + '.jpg'
   }
 
   render () {
     const hostel = ['agate', 'azurite', 'bloodstone', 'cobalt', 'opal']
+    const isHostelSet = localStorage.getItem('key') != null
     return (
       <span>
-        <Button variant='dark' onClick={this.handleShow.bind(this)} style={styles.button}>
-                Choose Hostel
-        </Button>
+        <Nav.Link onClick={this.handleShow.bind(this)}>
+          {isHostelSet ? (
+            <img
+              alt=''
+              src={'/images/hostels/' + localStorage.getItem('hostel') + '.png'}
+              height='30'
+              className='d-inline-block align-top'
+            />
+          ) : (
+            "Choose Hostel"
+          )}
+        </Nav.Link>
         <Modal show={this.state.show} onHide={this.handleClose.bind(this)} style={styles.modal}>
           <Modal.Header style={{ fontSize: '28px', border: 'none' }} className={localStorage.getItem('hostel') + '-bg'} closeButton>
                     Choose Hostel
           </Modal.Header>
           <Modal.Body className='dark-bg' style={styles.modalBody}>
-            <ul>
+            <Row style={styles.rowCenterAlign}>
               {hostel.map((item, index) => {
                 return (
-                  <li>
+                  <Col xs={6} md={4}>
                     <input
                       type='radio'
                       name='hostel'
@@ -78,10 +93,10 @@ class ChooseHostel extends Component {
                       onClick={this.check.bind(this)}
                     />
                     <label for={item}><img src={this.imgUrl({ item })} alt={item} /></label>
-                  </li>
+                  </Col>
                 )
               })}
-            </ul>
+            </Row>
             <Button variant='info' onClick={this.handleClick.bind(this)}>Submit</Button>
           </Modal.Body>
         </Modal>

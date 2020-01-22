@@ -5,6 +5,7 @@ import axios from 'axios'
 import DateTime from '../components/DateTime'
 import { InnerPage, Title } from '../components/InnerPage'
 const qs = require('querystring')
+const config = require('../config.js')
 
 const styles = {
   col: {
@@ -45,21 +46,21 @@ class CreateEvent extends Component {
   }
 
   async componentDidMount () {
-    axios.get(process.env.REACT_APP_API_BASE_URL + 'api/cups', {
+    axios.get(config.REACT_APP_API_BASE_URL + 'api/cups', {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
       this.setState({ cup_list: res.data })
     })
-    axios.get(process.env.REACT_APP_API_BASE_URL + 'api/clusters', {
+    axios.get(config.REACT_APP_API_BASE_URL + 'api/clusters', {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
       this.setState({ cluster_list: res.data })
     })
-    axios.get(process.env.REACT_APP_API_BASE_URL + 'api/venue', {
+    axios.get(config.REACT_APP_API_BASE_URL + 'api/venue', {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -116,7 +117,7 @@ class CreateEvent extends Component {
       APIToken: sessionStorage.getItem('APIToken') || 0
 
     }
-    axios.post(process.env.REACT_APP_API_BASE_URL + 'api/admin/events/create', qs.stringify(event), {
+    axios.post(config.REACT_APP_API_BASE_URL + 'api/admin/events/create', qs.stringify(event), {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { Redirect } from 'react-router'
 import axios from 'axios'
+const config = require('../config.js')
 const qs = require('querystring')
 
 class LoginForm extends Component {
@@ -28,7 +29,7 @@ class LoginForm extends Component {
       rollnumber: this.state.rollno,
       password: this.state.password
     }
-    axios.post(process.env.REACT_APP_API_BASE_URL + 'api/studentLogin', qs.stringify(user), {
+    axios.post(config.REACT_APP_API_BASE_URL + 'api/studentLogin', qs.stringify(user), {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }

@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Row, Col, ListGroup, Spinner } from 'react-bootstrap'
 import { InnerPage, Title } from '../components/InnerPage'
 import HoverImage from '../components/HoverImage'
+const config = require('../config.js')
 
 const styles = {
   colPadding: {
@@ -26,7 +27,7 @@ const styles = {
 
 class ClusterImage extends Component {
   render () {
-    const imageUrl = process.env.REACT_APP_FRONT_BASE_URL + 'images/clusters/' + this.props.cluster + '.png'
+    const imageUrl = config.REACT_APP_FRONT_BASE_URL + 'images/clusters/' + this.props.cluster + '.png'
     const title = this.props.title !== undefined ? this.props.title : this.props.cluster
     return (
       <Col xl={3} md={4} xs={6} style={styles.colPadding}>
@@ -61,7 +62,7 @@ class ClusterEvents extends Component {
           <Col xs={12} md style={styles.columnCenterAlign}>
             <ListGroup>
               {this.props.events.map((value, index) => {
-                const event_link = process.env.REACT_APP_FRONT_BASE_URL + 'events/' + value._id
+                const event_link = config.REACT_APP_FRONT_BASE_URL + 'events/' + value._id
                 return (
                   <ListGroup.Item action variant='dark' style={styles.textCenter} key={value._id} href={event_link}>
                     {value.name}
@@ -94,7 +95,7 @@ class Events extends Component {
 
   getEventsInCluster () {
     axios.get(
-      process.env.REACT_APP_API_BASE_URL + 'api/events/cluster/' + this.state.cluster
+      config.REACT_APP_API_BASE_URL + 'api/events/cluster/' + this.state.cluster
     ).then(res => {
       const events = []
       for (const event of res.data) {

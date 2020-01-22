@@ -4,6 +4,7 @@ import Select from 'react-select'
 import axios from 'axios'
 import { InnerPage, Title } from '../components/InnerPage'
 const qs = require('querystring')
+const config = require('../config.js')
 
 const styles = {
   blackText: {
@@ -37,7 +38,7 @@ class AddScore extends Component {
 
   getEvents () {
     axios.get(
-      process.env.REACT_APP_API_BASE_URL + 'api/events/'
+      config.REACT_APP_API_BASE_URL + 'api/events/'
     ).then(res => {
       const events = []
       const eventOptions = []
@@ -59,7 +60,7 @@ class AddScore extends Component {
 
   getHostels () {
     axios.get(
-      process.env.REACT_APP_API_BASE_URL + 'api/hostels/'
+      config.REACT_APP_API_BASE_URL + 'api/hostels/'
     ).then(res => {
       const hostelOptions = []
       for (const hostel of res.data) {
@@ -99,7 +100,7 @@ class AddScore extends Component {
 
   handleEventSelect (e) {
     axios.get(
-      process.env.REACT_APP_API_BASE_URL + 'api/scoreboard/event/' + e.value
+      config.REACT_APP_API_BASE_URL + 'api/scoreboard/event/' + e.value
     ).then(res => {
       const positionInputs = {}
       const positions = {}
@@ -159,7 +160,7 @@ class AddScore extends Component {
       scoreData: JSON.stringify({ positions: this.state.positions, points: this.state.points }),
       APIToken: sessionStorage.getItem('APIToken') || 0
     }
-    axios.post(process.env.REACT_APP_API_BASE_URL + 'api/admin/scoreboard', qs.stringify(scoreData), {
+    axios.post(config.REACT_APP_API_BASE_URL + 'api/admin/scoreboard', qs.stringify(scoreData), {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }

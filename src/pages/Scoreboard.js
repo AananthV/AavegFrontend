@@ -5,6 +5,7 @@ import axios from 'axios';
 import HostelCardContainer from '../components/HostelCardContainer'
 import ScoreboardTable from '../components/ScoreboardTable'
 import { InnerPage, Title } from '../components/InnerPage'
+const config = require('../config.js')
 
 const styles = {
 	canvas:{
@@ -37,7 +38,7 @@ class Scoreboard extends Component {
 	chartRef = React.createRef();
 
 	async componentDidMount() {
-		var res = await axios.get(process.env.REACT_APP_API_BASE_URL+'api/scoreboard',{
+		var res = await axios.get(config.REACT_APP_API_BASE_URL+'api/scoreboard',{
 			headers: {
 				'Content-type': 'application/x-www-form-urlencoded'
 			}

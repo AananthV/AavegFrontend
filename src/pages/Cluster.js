@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Row, Col } from 'react-bootstrap'
 import { InnerPage, Title } from '../components/InnerPage'
+const config = require('../config.js')
 
 class Cluster extends Component {
   constructor (props, context) {
@@ -15,7 +16,7 @@ class Cluster extends Component {
 
   async getEventsInCluster () {
     axios.get(
-      process.env.REACT_APP_API_BASE_URL + 'api/events/cluster/' + this.cluster
+      config.REACT_APP_API_BASE_URL + 'api/events/cluster/' + this.cluster
     ).then(res => {
       console.log(res.data)
     })

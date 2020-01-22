@@ -6,6 +6,7 @@ import design_data from '../team/design'
 import webOps_data from '../team/webops'
 import { Row, Col, Container } from 'react-bootstrap'
 import ProfileImage from './../components/Image'
+const config = require('../config.js')
 
 const styles = {
   cont: {
@@ -26,7 +27,7 @@ class Team extends Component {
                 <Col md={4}>
                   <ProfileImage
                     name={item.name}
-                    src={process.env.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
+                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
                   /> {/* replace 1 with item.id */}
                 </Col>
               )
@@ -41,7 +42,7 @@ class Team extends Component {
                 <Col md={4}>
                   <ProfileImage
                     name={item.name}
-                    src={process.env.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
+                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
                   /> {/* replace 1 with item.id */}
                 </Col>
               )
@@ -56,7 +57,7 @@ class Team extends Component {
                 <Col md={4}>
                   <ProfileImage
                     name={item.name}
-                    src={process.env.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
+                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
                   /> {/* replace 1 with item.id */}
                 </Col>
               )
@@ -71,7 +72,7 @@ class Team extends Component {
                 <Col md={4}>
                   <ProfileImage
                     name={item.name}
-                    src={process.env.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
+                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
                   /> {/* replace 1 with item.id */}
                 </Col>
               )

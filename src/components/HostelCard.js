@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Card, ListGroup, ListGroupItem, OverlayTrigger, Tooltip } from 'react-bootstrap'
+const config = require('../config.js')
 
 const styles = {
   card: {
@@ -17,7 +18,7 @@ const styles = {
 
 class HostelCard extends Component {
   render () {
-    const imageUrl = process.env.REACT_APP_FRONT_BASE_URL + 'images/hostels/' + this.props.img + '.jpg'
+    const imageUrl = config.REACT_APP_FRONT_BASE_URL + 'images/hostels/' + this.props.img + '.jpg'
     return (
       <Card style={styles.card}>
         <OverlayTrigger
