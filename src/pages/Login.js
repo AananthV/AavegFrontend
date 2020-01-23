@@ -100,7 +100,7 @@ class Login extends Component {
         'Content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
-      if (!res.data.not_chosen) {
+      if (res.data.hostel_chosen) {
         this.chooseHostel(res.data.hostel.toLowerCase());
       }
     })
