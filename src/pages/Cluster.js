@@ -16,7 +16,7 @@ class Cluster extends Component {
 
   async getEventsInCluster () {
     axios.get(
-      config.REACT_APP_API_BASE_URL + 'api/events/cluster/' + this.cluster
+      config.REACT_APP_API_BASE_URL + 'events/cluster/' + this.cluster
     ).then(res => {
       console.log(res.data)
     })

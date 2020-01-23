@@ -95,7 +95,7 @@ class Events extends Component {
 
   getEventsInCluster () {
     axios.get(
-      config.REACT_APP_API_BASE_URL + 'api/events/cluster/' + this.state.cluster
+      config.REACT_APP_API_BASE_URL + 'events/cluster/' + this.state.cluster
     ).then(res => {
       const events = []
       for (const event of res.data) {

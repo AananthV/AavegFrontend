@@ -4,10 +4,6 @@ import { Row, Col } from 'react-bootstrap'
 
 import '../css/home.css'
 
-const styles = {
-
-}
-
 class TextBox extends Component {
   render () {
     return (

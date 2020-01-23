@@ -5,8 +5,8 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 // Set background color
-const colorCodes = ['#2a34c4', '#2e4800', '#e31a1a', '#e9e9e9', '#ffe399']
-//document.getElementsByTagName('body')[0].style.backgroundImage = `linear-gradient(315deg, #000000 0%, ${colorCodes[localStorage.getItem('key')]} 90%)`
+// const colorCodes = ['#2a34c4', '#2e4800', '#e31a1a', '#e9e9e9', '#ffe399']
+// document.getElementsByTagName('body')[0].style.backgroundImage = `linear-gradient(315deg, #000000 0%, ${colorCodes[localStorage.getItem('key')]} 90%)`
 
 const backgroundImages = {
   'agate': 'BG_purple.jpg',

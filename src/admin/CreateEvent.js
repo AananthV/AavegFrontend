@@ -46,21 +46,21 @@ class CreateEvent extends Component {
   }
 
   async componentDidMount () {
-    axios.get(config.REACT_APP_API_BASE_URL + 'api/cups', {
+    axios.get(config.REACT_APP_API_BASE_URL + 'cups', {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
       this.setState({ cup_list: res.data })
     })
-    axios.get(config.REACT_APP_API_BASE_URL + 'api/clusters', {
+    axios.get(config.REACT_APP_API_BASE_URL + 'clusters', {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
       this.setState({ cluster_list: res.data })
     })
-    axios.get(config.REACT_APP_API_BASE_URL + 'api/venue', {
+    axios.get(config.REACT_APP_API_BASE_URL + 'venue', {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -117,7 +117,7 @@ class CreateEvent extends Component {
       APIToken: sessionStorage.getItem('APIToken') || 0
 
     }
-    axios.post(config.REACT_APP_API_BASE_URL + 'api/admin/events/create', qs.stringify(event), {
+    axios.post(config.REACT_APP_API_BASE_URL + 'admin/events/create', qs.stringify(event), {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }

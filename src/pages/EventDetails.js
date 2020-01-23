@@ -98,7 +98,7 @@ class EventDetails extends Component {
 
   getEventDetails (event_id) {
     axios.get(
-      config.REACT_APP_API_BASE_URL + 'api/events/' + event_id
+      config.REACT_APP_API_BASE_URL + 'events/' + event_id
     ).then(res => {
       console.log(res)
       if (res.data.length > 0) {

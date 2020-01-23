@@ -38,7 +38,7 @@ class AddScore extends Component {
 
   getEvents () {
     axios.get(
-      config.REACT_APP_API_BASE_URL + 'api/events/'
+      config.REACT_APP_API_BASE_URL + 'events/'
     ).then(res => {
       const events = []
       const eventOptions = []
@@ -60,7 +60,7 @@ class AddScore extends Component {
 
   getHostels () {
     axios.get(
-      config.REACT_APP_API_BASE_URL + 'api/hostels/'
+      config.REACT_APP_API_BASE_URL + 'hostels/'
     ).then(res => {
       const hostelOptions = []
       for (const hostel of res.data) {
@@ -100,7 +100,7 @@ class AddScore extends Component {
 
   handleEventSelect (e) {
     axios.get(
-      config.REACT_APP_API_BASE_URL + 'api/scoreboard/event/' + e.value
+      config.REACT_APP_API_BASE_URL + 'scoreboard/event/' + e.value
     ).then(res => {
       const positionInputs = {}
       const positions = {}
@@ -160,7 +160,7 @@ class AddScore extends Component {
       scoreData: JSON.stringify({ positions: this.state.positions, points: this.state.points }),
       APIToken: sessionStorage.getItem('APIToken') || 0
     }
-    axios.post(config.REACT_APP_API_BASE_URL + 'api/admin/scoreboard', qs.stringify(scoreData), {
+    axios.post(config.REACT_APP_API_BASE_URL + 'admin/scoreboard', qs.stringify(scoreData), {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }

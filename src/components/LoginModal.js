@@ -1,15 +1,6 @@
 import React, { Component } from 'react'
-import { Modal, Nav, Button } from 'react-bootstrap'
+import { Modal, Nav } from 'react-bootstrap'
 import LoginForm from './LoginForm'
-
-const styles = {
-  // this will make sure the login button doesnot look weird in mobile nav
-  button: {
-    opacity: '0.5',
-    paddingLeft: 0,
-    paddingRight: 0
-  }
-}
 
 class Login extends Component {
   constructor (props) {

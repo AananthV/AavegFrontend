@@ -38,7 +38,7 @@ class Scoreboard extends Component {
 	chartRef = React.createRef();
 
 	async componentDidMount() {
-		var res = await axios.get(config.REACT_APP_API_BASE_URL+'api/scoreboard',{
+		var res = await axios.get(config.REACT_APP_API_BASE_URL+'scoreboard',{
 			headers: {
 				'Content-type': 'application/x-www-form-urlencoded'
 			}

@@ -29,7 +29,7 @@ class LoginForm extends Component {
       rollnumber: this.state.rollno,
       password: this.state.password
     }
-    axios.post(config.REACT_APP_API_BASE_URL + 'api/studentLogin', qs.stringify(user), {
+    axios.post(config.REACT_APP_API_BASE_URL + 'studentLogin', qs.stringify(user), {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }

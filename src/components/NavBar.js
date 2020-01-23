@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Nav, Navbar, Button } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 import Login from './LoginModal'
 import ChooseHostel from './ChooseHostel'
 const config = require('../config.js')
