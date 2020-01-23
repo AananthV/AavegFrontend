@@ -34,6 +34,7 @@ class Scoreboard extends Component {
 			spectrumEvent:[],
 			sportEvent:[]
 		}
+		this.chart = undefined;
 	}
 	chartRef = React.createRef();
 
@@ -93,7 +94,9 @@ class Scoreboard extends Component {
 	drawChart(barChartData){
 		const myChartRef = this.chartRef.current.getContext("2d");
 
-		new Chart(myChartRef, {
+		if (this.chart != undefined) this.chart.destroy();
+
+		this.chart = new Chart(myChartRef, {
 			type: "bar",
 			data: barChartData,
 			options: {
