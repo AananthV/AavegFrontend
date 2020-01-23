@@ -114,7 +114,7 @@ class CreateEvent extends Component {
       description: this.state.description,
       startTime: this.state.startTime,
       points: this.state.points,
-      APIToken: sessionStorage.getItem('APIToken') || 0
+      APIToken: localStorage.getItem('APIToken') || 0
 
     }
     axios.post(config.REACT_APP_API_BASE_URL + 'admin/events/create', qs.stringify(event), {

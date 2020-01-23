@@ -35,8 +35,8 @@ class LoginForm extends Component {
       }
     }).then(res => {
       console.log(res.data)
-      sessionStorage.setItem('user_id', res.data.user_id)
-      sessionStorage.setItem('APIToken', res.data.APIToken)
+      localStorage.setItem('user_id', res.data.user_id)
+      localStorage.setItem('APIToken', res.data.APIToken)
       this.setState({ redirect: true })
     })
   }

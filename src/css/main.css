@@ -24,6 +24,18 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Gobold';
+  src: url('fonts/Gobold.eot');
+  src: url('fonts/Gobold.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Gobold.svg#Gobold') format('svg'),
+       url('fonts/Gobold.ttf') format('truetype'),
+       url('fonts/Gobold.woff') format('woff'),
+       url('fonts/Gobold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: 'Comfortaa-Regular';
   min-height: -webkit-fill-available;

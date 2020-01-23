@@ -28,19 +28,19 @@ class NavBar extends Component {
   }
 
   componentDidMount () {
-    if (sessionStorage.getItem('user_id') && !this.state.isLoggedIn) {
+    if (localStorage.getItem('user_id') && !this.state.isLoggedIn) {
       this.setState({ isLoggedIn: true })
     }
   }
 
   componentDidUpdate () {
-    if (sessionStorage.getItem('user_id') && !this.state.isLoggedIn) {
+    if (localStorage.getItem('user_id') && !this.state.isLoggedIn) {
       this.setState({ isLoggedIn: true })
     }
   }
 
   logout () {
-    sessionStorage.clear()
+    localStorage.clear()
     this.setState({ isLoggedIn: false })
   }
 

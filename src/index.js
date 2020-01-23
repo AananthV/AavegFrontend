@@ -16,7 +16,10 @@ const backgroundImages = {
   'opal': 'BG_gold.jpg'
 }
 
-document.getElementsByTagName('body')[0].style.backgroundImage = 'url(/images/' + backgroundImages[localStorage.getItem('hostel')] + ')';
+const hostel = localStorage.getItem('hostel');
+if (hostel != null) {
+  document.getElementsByTagName('body')[0].style.backgroundImage = 'url(/images/' + backgroundImages[localStorage.getItem('hostel')] + ')';
+}
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

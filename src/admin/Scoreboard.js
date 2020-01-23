@@ -158,7 +158,7 @@ class AddScore extends Component {
     const scoreData = {
       eventId: this.state.eventId,
       scoreData: JSON.stringify({ positions: this.state.positions, points: this.state.points }),
-      APIToken: sessionStorage.getItem('APIToken') || 0
+      APIToken: localStorage.getItem('APIToken') || 0
     }
     axios.post(config.REACT_APP_API_BASE_URL + 'admin/scoreboard', qs.stringify(scoreData), {
       headers: {
