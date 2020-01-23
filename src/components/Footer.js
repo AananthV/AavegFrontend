@@ -24,7 +24,8 @@ const styles = {
     backgroundColor: 'black'
   },
   darkCard: {
-    backgroundColor: '#292b2c'
+    backgroundColor: '#292b2c',
+    height: "100%"
   }
 }
 class Footer extends Component {
@@ -78,7 +79,7 @@ class Footer extends Component {
       </Row>
       <p style={styles.delta}>
 					&copy; Aaveg 2020. Made with &hearts; by
-        <a href='https://delta.nitt.edu'> <span style={{ color: 'green', textDecoration: 'none' }}>Delta Force</span></a> & Aaveg Design Team.
+        <a href='https://delta.nitt.edu'> <span style={{ color: 'green', textDecoration: 'none', fontWeight: 700 }}>Delta Force</span></a> & Aaveg Design Team.
       </p>
            </Container>
   }
