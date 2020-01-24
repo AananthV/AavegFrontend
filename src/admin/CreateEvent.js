@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button, Col, Row, Alert } from 'react-bootstrap'
+import Select from 'react-select'
 import TextField from '@material-ui/core/TextField'
 import axios from 'axios'
 import DateTime from '../components/DateTime'
@@ -20,8 +21,13 @@ const styles = {
   },
   alert: {
     marginTop: '20px'
+  },
+  blackText: {
+    color: '#000000'
   }
 }
+
+function nth(n){return["st","nd","rd"][((n+90)%100-10)%10-1]||"th"}
 
 class CreateEvent extends Component {
   constructor (props, context) {
@@ -34,18 +40,22 @@ class CreateEvent extends Component {
       venue: '',
       rules: '',
       description: '',
-      points: [],
+      points: ['', '', ''],
       error: false,
       success: false,
       errors: [],
-      numPoints: [],
+      numPoints: [1, 2, 3],
       cup_list: [],
       cluster_list: [],
-      venue_list: []
+      venue_list: [],
+      eventOptions: [],
+      events: []
     }
+    this.eventChosen = false;
   }
 
-  async componentDidMount () {
+  componentDidMount () {
+    this.getEvents();
     axios.get(config.REACT_APP_API_BASE_URL + 'cups', {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
@@ -67,6 +77,34 @@ class CreateEvent extends Component {
     }).then(res => {
       this.setState({ venue_list: res.data })
     })
+  }
+
+  getEvents () {
+    axios.get(
+      config.REACT_APP_API_BASE_URL + 'events/'
+    ).then(res => {
+      const events = []
+      const eventOptions = []
+      for (const cluster of res.data.eventsData) {
+        const options = []
+        for (const event of cluster.events) {
+          event.startTime = event.startDateTime;
+          events[event._id] = event
+          options.push({
+            value: event._id,
+            label: event.name
+          })
+        }
+        const clusterOption = { label: cluster._id, options: options }
+        eventOptions.push(clusterOption)
+      }
+      this.setState({ events: events, eventOptions: eventOptions })
+    })
+  }
+
+  handleEventSelect (e) {
+    this.eventChosen = e.value;
+    this.setState(this.state.events[e.value]);
   }
 
   handleStartTime (e, s) {
@@ -117,7 +155,8 @@ class CreateEvent extends Component {
       APIToken: localStorage.getItem('APIToken') || 0
 
     }
-    axios.post(config.REACT_APP_API_BASE_URL + 'admin/events/create', qs.stringify(event), {
+    const url = this.eventChosen ? 'admin/events/edit/' + this.eventChosen : 'admin/events/create'
+    axios.post(config.REACT_APP_API_BASE_URL + url, qs.stringify(event), {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       }
@@ -146,14 +185,40 @@ class CreateEvent extends Component {
       <InnerPage>
         <Title>Create Event</Title>
         <Form onSubmit={this.handleSubmit.bind(this)}>
+          <Form.Row>
+            <Col xs={12}>
+              <h2 className="mt-4">Select Event</h2>
+            </Col>
+            <Col
+              xs={12}
+              style={styles.blackText}
+            >
+              <Select
+                name='eventId'
+                options={this.state.eventOptions}
+                onChange={this.handleEventSelect.bind(this)}
+              />
+          </Col>
+          </Form.Row>
+          <h2 className="mt-4">Event Details</h2>
           <Form.Group controlId='name'>
             <Form.Label>Event Name</Form.Label>
-            <Form.Control placeholder='Event Name' onChange={this.handleChange.bind(this)} />
+            <Form.Control placeholder='Event Name' onChange={this.handleChange.bind(this)} defaultValue={this.state.name} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Event Description</Form.Label>
+            <TextField
+              id='description'
+              placeholder='Placeholder'
+              multiline
+              onChange={this.handleChange.bind(this)}
+              defaultValue={this.state.description}
+            />
           </Form.Group>
           <Form.Row>
             <Form.Group as={Col} controlId='cup'>
               <Form.Label>Cup</Form.Label>
-              <Form.Control as='select' onChange={this.handleChange.bind(this)}>
+              <Form.Control as='select' onChange={this.handleChange.bind(this)} value={this.state.cup}>
                 <option>Please select</option>
                 {
                   (this.state.cup_list).map((item, index) => {
@@ -164,7 +229,7 @@ class CreateEvent extends Component {
             </Form.Group>
             <Form.Group as={Col} controlId='cluster'>
               <Form.Label>Cluster</Form.Label>
-              <Form.Control as='select' onChange={this.handleChange.bind(this)}>
+              <Form.Control as='select' onChange={this.handleChange.bind(this)} value={this.state.cluster}>
                 <option>Please select</option>
                 {
                   (this.state.cluster_list).map((item, index) => {
@@ -175,57 +240,48 @@ class CreateEvent extends Component {
             </Form.Group>
           </Form.Row>
           <div id='p'>
-            <Button variant='info' onClick={this.addField.bind(this)}>Add more points</Button>
-            <Form.Group>
-              <Form.Label>1st place</Form.Label>
-              <Form.Control name='points' id='1' placeholder='1st Place' onChange={this.handleChange.bind(this)} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>2nd place</Form.Label>
-              <Form.Control name='points' id='2' placeholder='2nd Place' onChange={this.handleChange.bind(this)} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>3rd place</Form.Label>
-              <Form.Control name='points' id='3' placeholder='3rd Place' onChange={this.handleChange.bind(this)} />
-            </Form.Group>
+            <h2>Points</h2>
             {(this.state.numPoints).map((item, index) => {
               return (
                 <Form.Group>
-                  <Form.Label>{item} Place</Form.Label>
-                  <Form.Control name='points' id={item} placeholder={item + 'th Place'} onChange={this.handleChange.bind(this)} />
+                  <Form.Label>{item + nth(item)} Place</Form.Label>
+                  <Form.Control
+                    name='points'
+                    id={item}
+                    type="number"
+                    placeholder={'Points'}
+                    key={item + 'place'}
+                    onChange={this.handleChange.bind(this)}
+                    defaultValue={this.state.points[index]}/>
                 </Form.Group>
               )
             })}
+            <Button variant='info' onClick={this.addField.bind(this)}>Add more points</Button>
           </div>
+          <h2 className="mt-4">Additional Info</h2>
           <Form.Row>
             <Form.Group as={Col} controlId='venue'>
               <Form.Label>Venue</Form.Label>
-              <Form.Control as='select' onChange={this.handleChange.bind(this)}>
-                <option>Please select</option>
-                <option>Orion</option>
+              <Form.Control as='select' onChange={this.handleChange.bind(this)} value={this.state.venue}>
+                {
+                  (this.state.venue_list).map((item, index) => {
+                    return <option>{item.name}</option>
+                  })
+                }
               </Form.Control>
             </Form.Group>
             <Form.Group as={Col} controlId='rules'>
               <Form.Label>Rules</Form.Label>
-              <Form.Control placeholder='Link to the rules doc' onChange={this.handleChange.bind(this)} />
+              <Form.Control placeholder='Link to the rules doc' onChange={this.handleChange.bind(this)} defaultValue={this.state.rules}/>
             </Form.Group>
           </Form.Row>
-          <Form.Group>
-            <Form.Label>Event Description</Form.Label>
-            <TextField
-              id='description'
-              placeholder='Placeholder'
-              multiline
-              onChange={this.handleChange.bind(this)}
-            />
-          </Form.Group>
           <Row>
-            <Col lg={8} md={12} sm={12} style={styles.col}>
-              <DateTime value={this.state.startTime} onChangeProp={this.handleStartTime.bind(this)} />
+            <Col className="mt-1" lg={8} md={12} sm={12} style={styles.col}>
+              <DateTime value={this.state.startTime} onChangeProp={this.handleStartTime.bind(this)}/>
             </Col>
             <Col lg={4} md={12}>
               <Button variant='info' type='submit' style={styles.button}>
-                                    Create
+                                    Create / Edit
               </Button>
             </Col>
           </Row>
