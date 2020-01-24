@@ -7,6 +7,7 @@ import Events from './pages/Events'
 import Team from './pages/Team'
 import EventDetails from './pages/EventDetails'
 import Scoreboard from './pages/Scoreboard'
+import Login from './pages/Login'
 import CreateEvent from './admin/CreateEvent'
 import AddScore from './admin/Scoreboard'
 import Home from './pages/Home'
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path='/events' component={Events} />
           <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />
+          <Route exact path='/login' component={Login} />
           <Route exact path='/admin/scoreboard' component={AddScore} />
           <Route exact path='/admin/create_event' component={CreateEvent} />
           <Route component={FourOhFour} />

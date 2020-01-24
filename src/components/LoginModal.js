@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import { Modal, Nav } from 'react-bootstrap'
 import LoginForm from './LoginForm'
 
-class Login extends Component {
+class LoginModal extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      show: false
+      show: true
     }
   }
 
   handleClose () {
+    this.props.checkHostel();
     this.setState({ show: false })
   }
 
@@ -20,16 +21,13 @@ class Login extends Component {
 
   render () {
     return <span>
-      <Nav.Link onClick={this.handleShow.bind(this)}>
-                    Login
-      </Nav.Link>
-      <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)}>
-        <Modal.Header style={{ fontSize: '28px', border: 'none' }} className={localStorage.getItem('hostel') + '-bg'} closeButton>
-                      Login
+      <Modal centered show={this.state.show} onHide={this.handleClose.bind(this)} backdrop="static" keyboard={false}>
+        <Modal.Header style={{ fontSize: '28px', border: 'none' }} className={localStorage.getItem('hostel') + '-bg'}>
+                      Login and Choose Hostel
         </Modal.Header>
         <Modal.Body className='dark-bg'><LoginForm close={this.handleClose.bind(this)} /></Modal.Body>
       </Modal>
-           </span>
+    </span>
   }
 }
-export default Login
+export default LoginModal

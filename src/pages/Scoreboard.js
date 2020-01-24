@@ -26,6 +26,7 @@ class Scoreboard extends Component {
 		super(props);
 		this.state = {
 			hostels:["Agate", "Azurite", "Bloodstone", "Cobalt", "Opal"],
+			hostelIds:["agate", "azurite", "bloodstone", "cobalt", "opal"],
 			culturalsData:[],
 			spectrumData:[],
 			sportsData:[],
@@ -213,7 +214,8 @@ class Scoreboard extends Component {
 					spectrumData = {this.state.spectrumData}
 					sportsData = {this.state.sportsData}
 					culturalsData = {this.state.culturalsData}
-					hostels={this.state.hostels}
+					hostels = {this.state.hostels}
+					hostelIds = {this.state.hostelIds}
 				/>
 				<div style={styles.canvas}>
 					<Tabs style={styles.tabs} defaultActiveKey="0" id="uncontrolled-tab-example" onSelect={this.handleSelect.bind(this)}>

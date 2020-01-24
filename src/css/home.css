@@ -30,6 +30,14 @@
   margin-top: 24px;
 }
 
+.login-text {
+  font-family: 'Gobold';
+  font-size: 3em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  margin-top: 24px;
+}
+
 .dtg-main {
   position: absolute;
   top: 50vh;
@@ -49,6 +57,9 @@
 
   .dtg-text {
     font-size: 1.2em;
+  }
+  .login-text {
+    font-size: 2.5em;
   }
 }
 
@@ -70,6 +81,9 @@
   .dtg-text {
     font-size: 1.2em;
   }
+  .login-text {
+    font-size: 2em;
+  }
 }
 
 @media only screen and (max-width: 575px) {
@@ -84,4 +98,19 @@
   .dtg-text {
     font-size: 0.9em;
   }
+}
+
+#login-btn {
+  background-color: #00000088;
+  color: #ffffffaa;
+}
+
+#login-btn:hover {
+  background-color: #000000aa;
+  color: #ffffffcc;
+}
+
+#login-btn:active {
+  background-color: #000000;
+  color: #ffffff;
 }

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Countdown from 'react-countdown';
-import { Row, Col } from 'react-bootstrap'
-
+import { Button, Row, Col } from 'react-bootstrap'
 import '../css/home.css'
+
+const config = require('../config.js')
 
 class TextBox extends Component {
   render () {
@@ -64,16 +65,22 @@ const DTGRenderer = ({days, hours, minutes, seconds}) => (
 
 class DTGContainer extends Component {
   render() {
-    const startDate = Date.parse("2020-02-07T04:30:00+05:30");
+    const startDate = Date.parse("2020-02-07T16:30:00+05:30");
     return (
       <span className="d-flex flex-column align-items-center justify-content-center">
         <Countdown
           date={startDate}
           renderer={DTGRenderer}
           />
-        <span className="dtg-text">
-          Days to go
-        </span>
+        <span className="dtg-text">Days to go</span>
+        {localStorage.getItem('user_id') == null ? (
+          <a
+            id="login-btn"
+            className="btn btn-outline-dark pl-4 pr-1 mt-4"
+            href={config.REACT_APP_FRONT_BASE_URL + 'login'}>
+            <span className="login-text">Login</span>
+          </a>
+        ) : ''}
       </span>
     )
   }

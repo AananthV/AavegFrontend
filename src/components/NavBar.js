@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
-import Login from './LoginModal'
-import ChooseHostel from './ChooseHostel'
 const config = require('../config.js')
 
 const styles = {
@@ -66,15 +64,20 @@ class NavBar extends Component {
             <Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'sponsors'}>Sponsors</Nav.Link>
             <Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'team'}>Team</Nav.Link>
           </Nav>
-          <Nav>
-            <ChooseHostel />
-          </Nav>
-          <Nav>{isLoggedIn ? (
-            <Nav.Link onClick={this.logout.bind(this)}>Logout</Nav.Link>
+          {isLoggedIn ? (
+            <Nav>
+              <img
+                alt=''
+                src={'/images/hostels/' + localStorage.getItem('hostel') + '.png'}
+                height='40'
+                width='40'
+                className='d-none d-lg-inline-block align-top'
+              />
+              <Nav.Link onClick={this.logout.bind(this)}>Logout</Nav.Link>
+            </Nav>
           ) : (
-            <Login />
+            <Nav><Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'login'}>Login</Nav.Link></Nav>
           )}
-          </Nav>
         </Navbar.Collapse>
       </Navbar>
            </div>

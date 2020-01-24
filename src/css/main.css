@@ -76,14 +76,13 @@ a {
 .dark-bg {
   background-color: #292b2c;
 }
-
 .agate-bg {
   background-color: #204152;
 }
 .azurite-bg {
   background-color: #275737;
 }
-.bloodstone-bg {
+.bloodstone-bg, .null-bg {
   background-color: #881c1c;
 }
 .cobalt-bg {

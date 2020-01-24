@@ -23,7 +23,7 @@ class LoginForm extends Component {
     }
   }
 
-  async handleSubmit (e) {
+  handleSubmit (e) {
     e.preventDefault()
     const user = {
       rollnumber: this.state.rollno,
@@ -34,20 +34,15 @@ class LoginForm extends Component {
         'Content-type': 'application/x-www-form-urlencoded'
       }
     }).then(res => {
-      console.log(res.data)
       localStorage.setItem('user_id', res.data.user_id)
       localStorage.setItem('APIToken', res.data.APIToken)
-      this.setState({ redirect: true })
+      this.props.close();
     })
   }
 
-  	render () {
-    var redirect = this.state.redirect
-    if (redirect) {
-      return <Redirect to='/' />
-    }
-      		return (
-        <div>
+	render () {
+    return (
+      <div>
         <Form onSubmit={this.handleSubmit.bind(this)}>
             <Form.Group controlId='formGroupEmail'>
             <Form.Label>Roll Number</Form.Label>
@@ -59,10 +54,10 @@ class LoginForm extends Component {
           </Form.Group>
             <Button variant='primary' type='submit'>
                         Login
-          </Button>
-          </Form>
+            </Button>
+        </Form>
       </div>
     )
-  	}
+  }
 }
 export default LoginForm
