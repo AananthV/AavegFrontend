@@ -6,6 +6,10 @@ import axios from 'axios'
 const config = require('../config.js')
 const qs = require('querystring')
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 class HostelContainer extends Component {
   constructor (props) {
     super(props);
@@ -61,7 +65,7 @@ class Login extends Component {
 
     const user = {
       APIToken: localStorage.getItem('APIToken'),
-      hostel: h
+      hostel: capitalizeFirstLetter(h)
     }
     axios.put(config.REACT_APP_API_BASE_URL + 'user/hostel', qs.stringify(user), {
       headers: {
