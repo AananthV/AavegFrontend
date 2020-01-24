@@ -11,39 +11,62 @@ const styles = {
 
 class HostelCardContainer extends Component {
   render () {
-    let hostelCards = [];
-    const currentHostel = localStorage.getItem('hostel')
-    for (let i in this.props.hostels) {
-      console.log(this.props.hostelIds[i], currentHostel);
-      if (this.props.hostelIds[i] === currentHostel) {
-        console.log(this.props.hostelIds[i]);
-        hostelCards.unshift(<Col xs={6} sm={4} lg={3}>
-          <HostelCard
-            img={this.props.hostelIds[i]}
-            overall={this.props.overallData[i]}
-            spectrum={this.props.spectrumData[i]}
-            sports={this.props.sportsData[i]}
-            culturals={this.props.culturalsData[i]}
-            hostels={this.props.hostels[i]}
-          />
-        </Col>)
-      } else {
-        hostelCards.push(<Col xs={6} sm={4} lg={2}>
-          <HostelCard
-            img={this.props.hostelIds[i]}
-            overall={this.props.overallData[i]}
-            spectrum={this.props.spectrumData[i]}
-            sports={this.props.sportsData[i]}
-            culturals={this.props.culturalsData[i]}
-            hostels={this.props.hostels[i]}
-          />
-        </Col>)
-      }
+    const agate = {
+      id: 0,
+      name: "agate"
     }
+    const azurite = {
+      id: 1,
+      name: "azurite"
+    }          
+    const bloodstone =  {
+      id: 2,
+      name: "bloodstone"
+    }
+  const cobalt = {
+    id: 3,
+    name: "cobalt"
+  }
+  const opal = {
+    id: 4,
+    name: "opal"
+  }
+  var hostel = localStorage.getItem("hostel")
+  var arr = [agate,azurite,bloodstone,cobalt,opal]
+  switch (hostel){
+    case "agate":
+        arr = [cobalt,opal,agate,azurite,bloodstone]
+        break;
+    case "azurite":
+        arr = [opal,agate,azurite,bloodstone,cobalt]
+        break; 
+    case "cobalt":
+        arr = [azurite,bloodstone,cobalt,opal,agate]
+        break;
+    case "opal":
+        arr = [bloodstone,cobalt,opal,agate,azurite]
+        break;
+  }
     return (
       <Row style={styles.rowCenterAlign} className='hostel'>
-        {hostelCards.map(hc => hc)}
+        {arr.map((item,index)=>{
+          return (
+            <Col xs={localStorage.getItem("hostel")==arr[index].name?8:6}
+             sm={localStorage.getItem("hostel")==arr[index].name?12:6}
+             lg={localStorage.getItem("hostel")==arr[index].name?3:2}>
+              <HostelCard
+                img= {arr[index].name}
+                overall={this.props.overallData[arr[index].id]}
+                spectrum={this.props.spectrumData[arr[index].id]}
+                sports={this.props.sportsData[arr[index].id]}
+                culturals={this.props.culturalsData[arr[index].id]}
+                hostels={this.props.hostels[arr[index].id]}
+              />
+            </Col>
+          )
+        })}        
       </Row>
+
     )
   }
 }

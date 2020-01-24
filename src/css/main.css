@@ -93,6 +93,10 @@ a {
   background-color: #c99d46;
   color:black
 }
+.null-bg {
+  background-color:black;
+  color:white
+}
 
 .modal-content{
   border:none
