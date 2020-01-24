@@ -35,25 +35,28 @@ class HostelCardContainer extends Component {
   var arr = [agate,azurite,bloodstone,cobalt,opal]
   switch (hostel){
     case "agate":
-        arr = [cobalt,opal,agate,azurite,bloodstone]
-        break;
+      arr = [cobalt,opal,agate,azurite,bloodstone]
+      break;
     case "azurite":
-        arr = [opal,agate,azurite,bloodstone,cobalt]
-        break; 
+      arr = [opal,agate,azurite,bloodstone,cobalt]
+      break; 
     case "cobalt":
-        arr = [azurite,bloodstone,cobalt,opal,agate]
-        break;
+      arr = [azurite,bloodstone,cobalt,opal,agate]
+      break;
     case "opal":
-        arr = [bloodstone,cobalt,opal,agate,azurite]
-        break;
+      arr = [bloodstone,cobalt,opal,agate,azurite]
+      break;
+    default:
+      arr = [agate,azurite,bloodstone,cobalt,opal]
+      
   }
     return (
       <Row style={styles.rowCenterAlign} className='hostel'>
         {arr.map((item,index)=>{
           return (
-            <Col xs={localStorage.getItem("hostel")==arr[index].name?8:6}
-             sm={localStorage.getItem("hostel")==arr[index].name?12:6}
-             lg={localStorage.getItem("hostel")==arr[index].name?3:2}>
+            <Col xs={localStorage.getItem("hostel")===arr[index].name?8:6}
+             sm={localStorage.getItem("hostel")===arr[index].name?12:6}
+             lg={localStorage.getItem("hostel")===arr[index].name?3:2}>
               <HostelCard
                 img= {arr[index].name}
                 overall={this.props.overallData[arr[index].id]}

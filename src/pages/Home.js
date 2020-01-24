@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Countdown from 'react-countdown';
-import { Button, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import '../css/home.css'
 
 const config = require('../config.js')

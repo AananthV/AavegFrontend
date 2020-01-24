@@ -95,7 +95,7 @@ class Scoreboard extends Component {
 	drawChart(barChartData){
 		const myChartRef = this.chartRef.current.getContext("2d");
 
-		if (this.chart != undefined) this.chart.destroy();
+		if (this.chart !== undefined) this.chart.destroy();
 
 		this.chart = new Chart(myChartRef, {
 			type: "bar",
