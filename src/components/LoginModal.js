@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Nav } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import LoginForm from './LoginForm'
 
 class LoginModal extends Component {

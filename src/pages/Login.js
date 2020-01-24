@@ -90,7 +90,7 @@ class Login extends Component {
   }
 
   componentDidMount () {
-    if (this.hostelChosen == false && localStorage.getItem('hostel') != null) {
+    if (this.hostelChosen === false && localStorage.getItem('hostel') != null) {
       this.chooseHostel(localStorage.getItem('hostel'));
     }
   }

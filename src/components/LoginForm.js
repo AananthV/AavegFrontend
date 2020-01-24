@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import { Redirect } from 'react-router'
 import axios from 'axios'
 const config = require('../config.js')
 const qs = require('querystring')

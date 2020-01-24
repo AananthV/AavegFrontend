@@ -13,9 +13,11 @@ import AddScore from './admin/Scoreboard'
 import Home from './pages/Home'
 import FourOhFour from './pages/404'
 import './css/main.css'
+import ProtectedRoute from './components/ProtectedRoute'
 
 class App extends Component {
   render () {
+    console.log(this.state)
     return (
       <Router>
         <Route path='/' component={NavBar} />
@@ -26,11 +28,13 @@ class App extends Component {
           <Route exact path='/events' component={Events} />
           <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/admin/scoreboard' component={AddScore} />
-          <Route exact path='/admin/create_event' component={CreateEvent} />
+          <Route exact path='/login' render={ (props) => <Login/>}/>
+          <ProtectedRoute exact path='/admin/scoreboard' component={AddScore} />
+          <ProtectedRoute exact path='/admin/create_event' component={CreateEvent} />
           <Route component={FourOhFour} />
+          
         </Switch>
+
       </Router>
     )
   }
