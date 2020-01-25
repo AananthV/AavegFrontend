@@ -57,6 +57,14 @@ body {
   color: #fff;
   opacity:0.7
 }
+
+.flex-column a{
+  color: #fff;
+}
+.flex-column a:hover{
+  color:lightskyblue;
+  opacity:0.7
+}
 .MuiFormControl-root{
   background-color:whitesmoke;
   color:black;
