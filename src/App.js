@@ -17,7 +17,6 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 class App extends Component {
   render () {
-    console.log(this.state)
     return (
       <Router>
         <Route path='/' component={NavBar} />
