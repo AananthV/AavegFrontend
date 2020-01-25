@@ -56,13 +56,13 @@ class NavBar extends Component {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
-          <Nav className='mr-auto'>
-            <Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'about'}>About</Nav.Link>
-            <Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'events'}>Events</Nav.Link>
-            <Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'scoreboard'}>Scoreboard</Nav.Link>
+          <Nav className='mr-auto' activeKey={this.props.location.pathname}>
+            <Nav.Link href={'/about'}>About</Nav.Link>
+            <Nav.Link href={'/events'}>Events</Nav.Link>
+            <Nav.Link href={'/scoreboard'}>Scoreboard</Nav.Link>
             <Nav.Link href='https://medium.com/aaveg-blog'>Blog</Nav.Link>
-            <Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'sponsors'}>Sponsors</Nav.Link>
-            <Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'team'}>Team</Nav.Link>
+            <Nav.Link href={'/sponsors'}>Sponsors</Nav.Link>
+            <Nav.Link href={'/team'}>Team</Nav.Link>
           </Nav>
           {isLoggedIn ? (
             <Nav>
