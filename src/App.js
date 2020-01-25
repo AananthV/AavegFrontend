@@ -28,17 +28,11 @@ class App extends Component {
           <Route exact path='/events' component={Events} />
           <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />
-<<<<<<< HEAD
           <Route exact path='/login' render={ (props) => <Login/>}/>
           <ProtectedRoute exact path='/admin/scoreboard' component={AddScore} />
-          <ProtectedRoute exact path='/admin/create_event' component={CreateEvent} />
-=======
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/admin/scoreboard' component={AddScore} />
-          <Route exact path='/admin/events' component={CreateEvent} />
->>>>>>> a186a0f... Admin Edit Events
+          <ProtectedRoute exact path='/admin/events' component={CreateEvent} />
           <Route component={FourOhFour} />
-          
+
         </Switch>
 
       </Router>
