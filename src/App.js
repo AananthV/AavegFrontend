@@ -27,7 +27,7 @@ class App extends Component {
           <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />
           <Route exact path='/login' render={ (props) => <Login/>}/>
-          <Route exact path='/admin' component={Admin}/>
+          <ProtectedRoute exact path='/admin' component={Admin}/>
           <ProtectedRoute exact path='/admin/scoreboard' component={AddScore} />
           <ProtectedRoute exact path='/admin/events' component={CreateEvent} />
           <Route component={FourOhFour} />

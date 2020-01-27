@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Alert } from 'react-bootstrap'
 import axios from 'axios'
 const config = require('../config.js')
 const qs = require('querystring')
@@ -10,7 +10,8 @@ class LoginForm extends Component {
     this.state = {
       rollno: 0,
       password: '',
-      redirect: false
+      redirect: false,
+      error:false
     }
   }
 
@@ -36,6 +37,8 @@ class LoginForm extends Component {
       localStorage.setItem('user_id', res.data.user_id)
       localStorage.setItem('APIToken', res.data.APIToken)
       this.props.close();
+    }).catch(()=>{
+        this.setState({error:true})
     })
   }
 
@@ -54,6 +57,9 @@ class LoginForm extends Component {
             <Button variant='primary' type='submit'>
                         Login
             </Button>
+            {
+              this.state.error?<Alert variant='danger' style={{marginTop:"10px"}}>Invalid Credentials</Alert>:null
+            }
         </Form>
       </div>
     )
