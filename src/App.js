@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import About from './pages/About'
 import Events from './pages/Events'
-import Team from './pages/Team'
 import EventDetails from './pages/EventDetails'
 import Scoreboard from './pages/Scoreboard'
 import Login from './pages/Login'
@@ -24,7 +23,6 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
-          <Route exact path='/team' component={Team} />
           <Route exact path='/events' component={Events} />
           <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />

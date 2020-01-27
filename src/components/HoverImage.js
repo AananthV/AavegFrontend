@@ -5,7 +5,7 @@ import '../css/HoverImage.css'
 class HoverImage extends Component {
   render () {
     return (
-      <div className='hover-image' onClick={this.props.onClick}>
+      <div className={'hover-image ' + localStorage.getItem('hostel') + '-bg'} onClick={this.props.onClick}>
         <a href={this.props.link}>
           <div className='hover-image-overlay' />
           <img className='hover-image-image' src={this.props.src} alt={this.props.title} />

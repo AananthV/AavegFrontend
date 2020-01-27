@@ -41,13 +41,9 @@ class ClusterList extends Component {
   render () {
     return (
       <Row style={styles.rowCenterAlign}>
-        <ClusterImage cluster='Arts' onClick={this.props.showCluster.bind(this.props.parent, 'Arts')} />
-        <ClusterImage cluster='Culturals' onClick={this.props.showCluster.bind(this.props.parent, 'Culturals')} />
-        <ClusterImage cluster='Gaming' onClick={this.props.showCluster.bind(this.props.parent, 'Gaming')} />
-        <ClusterImage cluster='Lits' onClick={this.props.showCluster.bind(this.props.parent, 'Lits')} />
-        <ClusterImage cluster='Media' onClick={this.props.showCluster.bind(this.props.parent, 'Media')} />
-        <ClusterImage cluster='Misc' onClick={this.props.showCluster.bind(this.props.parent, 'Misc')} />
-        <ClusterImage cluster='Sports' onClick={this.props.showCluster.bind(this.props.parent, 'Sports')} />
+        {this.props.clusters.map(cluster => {
+          return <ClusterImage cluster={cluster} onClick={this.props.showCluster.bind(this.props.parent, cluster)} />
+        })}
       </Row>
     )
   }
@@ -82,6 +78,7 @@ class Events extends Component {
     super(props, context)
     this.state = {
       cluster: undefined,
+      cluster_list: [],
       events: []
     }
   }
@@ -91,6 +88,17 @@ class Events extends Component {
     if (cluster !== undefined) {
       this.showCluster(cluster)
     }
+    axios.get(config.REACT_APP_API_BASE_URL + 'clusters', {
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      }
+    }).then(res => {
+      let cluster_list = [];
+      for (let cluster of res.data) {
+        cluster_list.push(cluster.name)
+      }
+      this.setState({ cluster_list: cluster_list })
+    })
   }
 
   getEventsInCluster () {
@@ -121,7 +129,7 @@ class Events extends Component {
 
     if (isCluster) {
       if (isEventsLoaded) {
-        return (<ClusterEvents cluster={this.state.cluster} events={this.state.events} backFunction={this.goBack.bind(this)} />)
+        return (<ClusterEvents clusters={this.state.cluster_list} cluster={this.state.cluster} events={this.state.events} backFunction={this.goBack.bind(this)} />)
       } else {
         console.log('lol')
         return (
@@ -131,7 +139,7 @@ class Events extends Component {
         )
       }
     } else {
-      return (<ClusterList showCluster={this.showCluster} parent={this} />)
+      return (<ClusterList clusters={this.state.cluster_list} showCluster={this.showCluster} parent={this} />)
     }
   }
 

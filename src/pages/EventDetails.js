@@ -31,8 +31,8 @@ class ClusterCupDetails extends Component {
   render () {
     return (
       <Row className='justify-content-around'>
-        <ImageButton src='/images/Cup.png'>{this.props.cup}</ImageButton>
-        <ImageButton src='/images/Cluster.png'>{this.props.cluster}</ImageButton>
+        <ImageButton src={'/images/cups/' + this.props.cup + '.png'}>{this.props.cup}</ImageButton>
+        <ImageButton src={'/images/clusters/' + this.props.cluster + '.png'}>{this.props.cluster}</ImageButton>
       </Row>
     )
   }

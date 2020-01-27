@@ -85,13 +85,16 @@ a {
   background-color: #292b2c;
 }
 .agate-bg {
-  background-color: #204152;
+  background-color: #000287;
+  color:white
 }
 .azurite-bg {
-  background-color: #275737;
+  background-color: #006a06;
+  color:white
 }
-.bloodstone-bg, .null-bg {
+.bloodstone-bg {
   background-color: #881c1c;
+  color:white
 }
 .cobalt-bg {
   background-color: #b1b1b1;
@@ -102,8 +105,8 @@ a {
   color:black
 }
 .null-bg {
-  background-color:black;
-  color:white
+  background-color: #b28f01;
+  color: black;
 }
 
 .modal-content{

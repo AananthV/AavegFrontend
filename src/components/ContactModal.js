@@ -6,8 +6,7 @@ const styles = {
     margin: '10px',
     padding: '7px',
     borderRadius: '8px',
-    border: 'none',
-    color: (localStorage.getItem('hostel') === 'opal' || localStorage.getItem('hostel') === 'cobalt') ? 'black' : '#f2e7e6'
+    border: 'none'
   },
   nav_link: {
     color: 'white'
