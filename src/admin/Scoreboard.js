@@ -183,8 +183,8 @@ class AddScore extends Component {
   }
 
   render () {
-    const error = this.state.error ? <Alert variant='danger' style={styles.alert}>Failed to create new event</Alert> : null
-    const success = this.state.success ? <Alert variant='success' style={styles.alert}>Successfully created new event</Alert> : null
+    const error = this.state.error ? <Alert variant='danger' style={styles.alert}>Failed to update Score</Alert> : null
+    const success = this.state.success ? <Alert variant='success' style={styles.alert}>Successfully updated Score</Alert> : null
     return <InnerPage>
       <Title>Add Score</Title>
       <Form>

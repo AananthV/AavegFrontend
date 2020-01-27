@@ -14,7 +14,6 @@ function DateTime (props) {
         format='yyyy/MM/dd HH:mm'
         value={props.value}
         onChange={props.onChangeProp}
-        disablePast
       />
     </MuiPickersUtilsProvider>
 
