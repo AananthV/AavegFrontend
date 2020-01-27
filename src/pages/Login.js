@@ -75,14 +75,7 @@ class Login extends Component {
       console.log('Hostel set in DB')
     })
 
-    const backgroundImages = {
-      'agate': 'BG_purple.jpg',
-      'azurite': 'BG_green.jpg',
-      'bloodstone': 'BG.jpg',
-      'cobalt': 'BG_silver.jpg',
-      'opal': 'BG_gold.jpg'
-    }
-    document.getElementsByTagName('body')[0].style.backgroundImage = 'url(/images/' + backgroundImages[h] + ')';
+    document.getElementsByTagName('body')[0].style.backgroundImage = 'url(/images/bg_' + h + '.jpg)';
 
     localStorage.setItem('hostel', h)
 

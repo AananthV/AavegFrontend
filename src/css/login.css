@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: calc(100% - 56px);
-  height: calc(-webkit-fill-available - 56px);
+  height: 100%;
+  height: calc(var(--vh, 1vh) * 100 - 56px);
   overflow: hidden;
 }
 
