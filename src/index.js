@@ -23,6 +23,30 @@ document.getElementsByTagName('body')[0].style.backgroundImage = 'url(/images/bg
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
+
+console.log(
+  '%c' +
+  '                `   -:-`                \n' +
+  '             .:/+- -++++/.              \n' +
+  '            -+++++/+++++:               \n' +
+  '             .+++++++++-                \n' +
+  '              `/++++++-                 \n' +
+  '               :++++++:`                \n' +
+  '              :++++++++/.               \n' +
+  '             :+++++/+++++-              \n' +
+  '            :+++++-`:+++++:`            \n' +
+  '           :+++++.   -+++++/`           \n' +
+  '          :+++++.     ./+++++.          \n' +
+  '  .-.....:+++++:```````./+++++:`        \n' +
+  '  :++++++++++++++++++++++++++++//////:  \n' +
+  '  /++++++++++++++++++++++++++++++++++/  \n' +
+  '  ```.++++++-...----------::/++++++::-  \n' +
+  '     -/++++`                 -+++/:`    \n' +
+  '       `.:`                   .-`       \n' +
+  'Curious?\nStay tuned for our Induction briefing',
+  'color: green'
+);
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
