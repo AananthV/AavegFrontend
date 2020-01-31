@@ -110,7 +110,6 @@ class Events extends Component {
         events.push(event.details[0])
       }
       this.setState({ events: events })
-      console.log('lol3', res.data)
     })
   }
 
@@ -131,7 +130,6 @@ class Events extends Component {
       if (isEventsLoaded) {
         return (<ClusterEvents clusters={this.state.cluster_list} cluster={this.state.cluster} events={this.state.events} backFunction={this.goBack.bind(this)} />)
       } else {
-        console.log('lol')
         return (
           <Row style={styles.rowCenterAlign}>
             <Spinner animation='border' role='status' />

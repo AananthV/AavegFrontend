@@ -60,9 +60,10 @@ class NavBar extends Component {
             <Nav.Link href={'/about'}>About</Nav.Link>
             <Nav.Link href={'/events'}>Events</Nav.Link>
             <Nav.Link href={'/scoreboard'}>Scoreboard</Nav.Link>
+            <Nav.Link href={'/sponsors'}>Sponsors</Nav.Link>
             <Nav.Link href='https://medium.com/aaveg-blog'>Blog</Nav.Link>
           </Nav>
-          {isLoggedIn ? (
+          {isLoggedIn? (
             <Nav>
               <img
                 alt=''
@@ -74,7 +75,7 @@ class NavBar extends Component {
               <Nav.Link onClick={this.logout.bind(this)}>Logout</Nav.Link>
             </Nav>
           ) : (
-            <Nav><Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'login'}>Login</Nav.Link></Nav>
+            this.props.location.pathname!=='/login'?<Nav><Nav.Link href={config.REACT_APP_FRONT_BASE_URL + 'login'}>Login</Nav.Link></Nav>:null
           )}
         </Navbar.Collapse>
       </Navbar>

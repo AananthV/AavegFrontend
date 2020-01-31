@@ -12,6 +12,7 @@ import AddScore from './admin/Scoreboard'
 import Home from './pages/Home'
 import FourOhFour from './pages/404'
 import Admin from './pages/Admin'
+import Sponsors from './pages/Sponsors'
 import './css/main.css'
 import ProtectedRoute from './components/ProtectedRoute'
 
@@ -26,7 +27,8 @@ class App extends Component {
           <Route exact path='/events' component={Events} />
           <Route exact path='/events/:event_id' component={EventDetails} />
           <Route exact path='/scoreboard' component={Scoreboard} />
-          <Route exact path='/login' render={ (props) => <Login/>}/>
+          <Route exact path='/login' component={Login}/>
+          <Route exact path='/sponsors' component={Sponsors}/>
           <ProtectedRoute exact path='/admin' component={Admin}/>
           <ProtectedRoute exact path='/admin/scoreboard' component={AddScore} />
           <ProtectedRoute exact path='/admin/events' component={CreateEvent} />

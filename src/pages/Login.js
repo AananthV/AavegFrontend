@@ -67,13 +67,15 @@ class Login extends Component {
       APIToken: localStorage.getItem('APIToken'),
       hostel: capitalizeFirstLetter(h)
     }
-    axios.put(config.REACT_APP_API_BASE_URL + 'user/hostel', qs.stringify(user), {
-      headers: {
-        'Content-type': 'application/x-www-form-urlencoded'
-      }
-    }).then(res => {
-      console.log('Hostel set in DB')
-    })
+    if(localStorage.getItem('hostel')){
+      axios.put(config.REACT_APP_API_BASE_URL + 'user/hostel', qs.stringify(user), {
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded'
+        }
+      }).then(res => {
+        //console.log('Hostel set in DB')
+      })
+    }
 
     document.getElementsByTagName('body')[0].style.backgroundImage = 'url(/images/bg_' + h + '.jpg)';
 
