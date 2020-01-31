@@ -41,8 +41,8 @@ class ClusterList extends Component {
   render () {
     return (
       <Row style={styles.rowCenterAlign}>
-        {this.props.clusters.map(cluster => {
-          return <ClusterImage cluster={cluster} onClick={this.props.showCluster.bind(this.props.parent, cluster)} />
+        {this.props.clusters.map((cluster,index) => {
+          return <ClusterImage key={index} cluster={cluster} onClick={this.props.showCluster.bind(this.props.parent, cluster)} />
         })}
       </Row>
     )

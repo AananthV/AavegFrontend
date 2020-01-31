@@ -18,7 +18,7 @@ class HostelCardContainer extends Component {
       if (lg_order === 3) lg_order++;
       if (sm_order === 2) sm_order++;
       if (this.props.hostelIds[i] === currentHostel) {
-        hostelCards.unshift(<Col xs={12} sm={{order: 2, span: 4}} lg={{order: 3, span: 3}}>
+        hostelCards.unshift(<Col key={i} xs={12} sm={{order: 2, span: 4}} lg={{order: 3, span: 3}}>
           <HostelCard
             img={this.props.hostelIds[i]}
             overall={this.props.overallData[i]}
@@ -29,7 +29,7 @@ class HostelCardContainer extends Component {
           />
         </Col>)
       } else {
-        hostelCards.push(<Col xs={6} sm={{order: sm_order, span: 4}} lg={{order: lg_order, span: 2}}>
+        hostelCards.push(<Col key={i} xs={6} sm={{order: sm_order, span: 4}} lg={{order: lg_order, span: 2}}>
           <HostelCard
             img={this.props.hostelIds[i]}
             overall={this.props.overallData[i]}

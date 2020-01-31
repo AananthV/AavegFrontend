@@ -7,7 +7,7 @@ class ScoreboardTable extends Component {
     return (
       <Table striped bordered hover variant='dark' responsive>
         <thead>
-          <tr>
+          <tr style={{position:"relative"}}>
             <th>{this.props.title}</th>
             <th>{this.props.hostels[0]}</th>
             <th>{this.props.hostels[1]}</th>
@@ -18,7 +18,7 @@ class ScoreboardTable extends Component {
         </thead>
         <tbody>
           {this.props.eventData.map((event, i) => {
-            return (<tr>
+            return (<tr key={_.get(event, 'event_name')}>
               <td>{_.get(event, 'event_name')}</td>
               <td>{_.get(event, 'Agate') || 0}</td>
               <td>{_.get(event, 'Azurite') || 0}</td>

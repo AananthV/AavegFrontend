@@ -60,9 +60,9 @@ class Team extends Component {
         <Title>Sponsors</Title>
           <Row>
               {
-                  (this.state.sponsors).map(item=>{
+                  (this.state.sponsors).map((item,index)=>{
                       return (
-                        <Col md={6} style={styles.sponsors}>
+                        <Col key={index} md={6} style={styles.sponsors}>
                             <Card style={styles.card}>
                             <Card.Title style={styles.title}>{item.title}</Card.Title>
                                 <a href={item.link}>

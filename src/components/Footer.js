@@ -65,28 +65,37 @@ class Footer extends Component {
           <Card style={styles.darkCard}>
             <Card.Header style={styles.cardHeader} className={hostel + '-bg'} as='h5'>Reach Us</Card.Header>
             <Card.Body>
-              <Card.Text>
-                <a href='https://www.instagram.com/aaveg.nitt/' style={styles.icon}>
-                  <button style={styles.icon} className={hostel + '-bg fa fa-instagram'} />
-                </a>
+              <div>
+                <Row style={{textAlign:"center"}}>
+                <Col xs={4} sm={2}>
+                    <a href='https://www.instagram.com/aaveg.nitt/' style={styles.icon}>
+                    <button style={styles.icon} className={hostel + '-bg fa fa-instagram'} />
+                    </a>
+                  </Col>
+                <Col xs={4} sm={2}>
                 <a href='https://www.facebook.com/aaveg.nitt' style={styles.icon}>
                   <button style={styles.icon} className={hostel + '-bg fa fa-facebook'} />
-                </a>
+                </a></Col>
+                <Col xs={4} sm={2}>
                 <a href='https://www.youtube.com/channel/UC6RY84pojMJ0HP6wHkFeW-A' style={styles.icon}>
                   <button style={styles.icon} className={hostel + '-bg fa fa-youtube'} />
-                </a>
+                </a></Col>
+                <Col xs={4} sm={2}>
                 <a href='https://medium.com/aaveg-blog' style={styles.icon}>
                   <button style={styles.icon} className={hostel + '-bg fa fa-medium'} />
-                </a>
+                </a></Col>
+                <Col xs={4} sm={2}>
                 <a href='https://be.net/aavegdesign' style={styles.icon}>
                   <button style={styles.icon} className={hostel + '-bg fa fa-behance'} />
-                </a>
-                <a href='https://linktr.ee/aaveg.nitt' style={styles.icon}>
+                </a></Col>
+                  <Col xs={4} sm={2}>
+                  <a href='https://linktr.ee/aaveg.nitt' style={styles.icon}>
                   <button style={styles.icon} className={hostel + '-bg fa fa-external-link'} />
-                </a>
+                </a></Col>
+                </Row>
                 <br />
                 <ContactModal />
-              </Card.Text>
+              </div>
             </Card.Body>
           </Card>
         </Col>
