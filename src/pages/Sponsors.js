@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { InnerPage, Title } from '../components/InnerPage'
-import { Row, Col, Container,Image,Card } from 'react-bootstrap'
+import { Row, Col,Image,Card } from 'react-bootstrap'
 import Skeleton from 'react-loading-skeleton';
 import axios from 'axios'
 const config = require('../config.js')
@@ -24,7 +24,7 @@ const styles = {
       margin:"auto",
       marginTop:"20px",
       maxWidth:"90%",
-      borderRadius:"20px"
+      borderRadius:"10px"
   },
   title:{
       marginTop:"10px"
@@ -48,7 +48,6 @@ class Team extends Component {
         axios.get(
             config.REACT_APP_API_BASE_URL + 'sponsors/'
           ).then(res => {
-              console.log(res.data)
             if (res.data.length > 0) {
               this.setState({sponsors:res.data})
             }

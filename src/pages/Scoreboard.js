@@ -88,8 +88,6 @@ class Scoreboard extends Component {
 		this.setState({culturalsEvent:res.data.events_score.culturals})
 		this.setState({spectrumEvent:res.data.events_score.spectrum})
 		this.setState({sportEvent:res.data.events_score.sports})
-		console.log(res.data.events_score.sports)
-		console.log(this.state.sportEvent)
 		this.handleSelect(0)
 	}
 	drawChart(barChartData){

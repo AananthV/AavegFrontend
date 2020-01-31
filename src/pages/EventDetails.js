@@ -100,10 +100,8 @@ class EventDetails extends Component {
     axios.get(
       config.REACT_APP_API_BASE_URL + 'events/' + event_id
     ).then(res => {
-      console.log(res)
       if (res.data.length > 0) {
         this.setState({ loaded: true, event: res.data[0].details[0] })
-        console.log(res.data[0].details[0])
       }
     })
   }
