@@ -33,11 +33,15 @@ const styles = {
   }
 }
 class Footer extends Component {
+  playAudio() {
+    const audioEl = document.getElementsByClassName("audio-element")[0]
+    audioEl.play()
+  }
   render () {
     const hostel = localStorage.getItem('hostel');
     return <Container>
       <Row>
-        <Col sm={12} lg={6} style={styles.col}>
+        <Col className="p-0 pr-lg-2" sm={12} lg={6} style={styles.col}>
           <Card style={styles.darkCard}>
             <Card.Header style={styles.cardHeader} className={hostel + '-bg'} as='h5'>The Team</Card.Header>
             <Card.Body>
@@ -47,12 +51,12 @@ class Footer extends Component {
 									who are constantly ideating, questioning and
 									putting their most creative foot forward to give you the best possible experience
 									and have this fest etched in your memories.<br />
-									PS: You can see us everywhere during the fest.
+                PS: You can see <a href="/images/us.jpeg" target="_blank" style={{ textDecoration: 'none', color: '#f7f7f7cc' }}>us</a> everywhere during the fest.
               </Card.Text>
             </Card.Body>
           </Card>
         </Col>
-        <Col sm={12} lg={6} style={styles.col}>
+        <Col className="p-0 pl-lg-2" sm={12} lg={6} style={styles.col}>
           <Card style={styles.darkCard}>
             <Card.Header style={styles.cardHeader} className={hostel + '-bg'} as='h5'>Reach Us</Card.Header>
             <Card.Body>
@@ -83,9 +87,14 @@ class Footer extends Component {
         </Col>
       </Row>
       <p style={styles.delta}>
-					&copy; Aaveg 2020. Made with &hearts; by
+					Made with
+          <a href='/images/salaam.jpg' target="_blank" onClick={this.playAudio} style={{ textDecoration: 'none' }}> &hearts; </a>
+          by
         <a href='https://delta.nitt.edu'> <span style={{ color: 'green', textDecoration: 'none', fontWeight: 700 }}>Delta Force</span></a> & Aaveg Design Team.
       </p>
+      <audio className="audio-element">
+       <source src="/audio/salaam.mp3"></source>
+     </audio>
            </Container>
   }
 }

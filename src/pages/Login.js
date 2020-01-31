@@ -21,7 +21,7 @@ class HostelContainer extends Component {
   }
   render () {
     return (
-      <div class={
+      <div className={
         'hostel-container ' +
         this.props.hostel + '-bg' +
         (this.state.active ? ' active' : '') +
