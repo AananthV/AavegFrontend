@@ -60,6 +60,7 @@ class NavBar extends Component {
             <Nav.Link href={'/about'}>About</Nav.Link>
             <Nav.Link href={'/events'}>Events</Nav.Link>
             <Nav.Link href={'/scoreboard'}>Scoreboard</Nav.Link>
+            <Nav.Link href={'/sponsors'}>Sponsors</Nav.Link>
             <Nav.Link href='https://medium.com/aaveg-blog'>Blog</Nav.Link>
           </Nav>
           {isLoggedIn ? (
