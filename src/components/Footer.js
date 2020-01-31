@@ -18,14 +18,11 @@ const styles = {
     marginBottom: '5px'
   },
   delta: {
-    position: 'fixed',
-    left: '0',
-    bottom: '0',
-    width: '100vw',
     textAlign: 'center',
     padding: '2px',
-    margin: '0',
-    backgroundColor: '#000000'
+    margin: '0px -15px',
+    backgroundColor: '#000000',
+    fontSize: '0.9em'
   },
   darkCard: {
     backgroundColor: '#292b2c',
