@@ -48,6 +48,11 @@ body {
   color: #f7f7f7cc;
 }
 
+#root {
+  padding-top: 56px;
+  padding-bottom: 36px;
+}
+
 .nav-tabs a {
   color: #fff;
   margin:auto
@@ -89,7 +94,7 @@ a {
   color:white
 }
 .azurite-bg {
-  background-color: #006a06;
+  background-color: #08580c;
   color:white
 }
 .bloodstone-bg {

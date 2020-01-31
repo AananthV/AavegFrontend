@@ -18,9 +18,14 @@ const styles = {
     marginBottom: '5px'
   },
   delta: {
+    position: 'fixed',
+    left: '0',
+    bottom: '0',
+    width: '100vw',
     textAlign: 'center',
     padding: '2px',
-    backgroundColor: 'black'
+    margin: '0',
+    backgroundColor: '#000000'
   },
   darkCard: {
     backgroundColor: '#292b2c',
@@ -41,7 +46,7 @@ class Footer extends Component {
     const hostel = localStorage.getItem('hostel');
     return <Container>
       <Row>
-        <Col className="p-0 pr-lg-2" sm={12} lg={6} style={styles.col}>
+        <Col className="d-none d-lg-flex p-0 pr-lg-2" sm={12} lg={6} style={styles.col}>
           <Card style={styles.darkCard}>
             <Card.Header style={styles.cardHeader} className={hostel + '-bg'} as='h5'>The Team</Card.Header>
             <Card.Body>

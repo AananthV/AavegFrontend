@@ -13,7 +13,7 @@ const styles = {
     fontFamily: "Comfortaa-Regular",
     textTransform: "Uppercase",
     color: "white",
-    backgroundColor: "#000000aa"
+    backgroundColor: "#000000"
   }
 }
 
@@ -45,7 +45,7 @@ class NavBar extends Component {
   render () {
     var isLoggedIn = this.state.isLoggedIn
     return <div>
-      <Navbar collapseOnSelect expand='lg' variant='dark' sticky='top' style={styles.nav}>
+      <Navbar collapseOnSelect expand='lg' variant='dark' fixed='top' style={styles.nav}>
         <Navbar.Brand href={config.REACT_APP_FRONT_BASE_URL}>
           <img
             alt=''
