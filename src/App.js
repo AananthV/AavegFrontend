@@ -14,6 +14,7 @@ import FourOhFour from './pages/404'
 import Admin from './pages/Admin'
 import Sponsors from './pages/Sponsors'
 import './css/main.css'
+import Team from './pages/Team'
 import ProtectedRoute from './components/ProtectedRoute'
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route exact path='/scoreboard' component={Scoreboard} />
           <Route exact path='/login' component={Login}/>
           <Route exact path='/sponsors' component={Sponsors}/>
+          <Route exact path='/team' component={Team}/>
           <ProtectedRoute exact path='/admin' component={Admin}/>
           <ProtectedRoute exact path='/admin/scoreboard' component={AddScore} />
           <ProtectedRoute exact path='/admin/events' component={CreateEvent} />
