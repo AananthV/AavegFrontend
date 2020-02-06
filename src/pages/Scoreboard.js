@@ -151,11 +151,8 @@ class Scoreboard extends Component {
 				label: 'Culturals',
 				backgroundColor: '#09bc8a',
 				data: this.state.culturalsData
-			}, {
-				label: 'Sports',
-				backgroundColor: '#f49d6e',
-				data: this.state.sportsData
-			}, {
+			},
+			{
 				label: 'Spectrum',
 				backgroundColor: '#75dddd',
 				data: this.state.spectrumData
