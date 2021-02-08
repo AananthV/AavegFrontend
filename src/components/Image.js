@@ -4,7 +4,10 @@ import { Image, Card } from 'react-bootstrap'
 const styles = {
   img: {
     margin: 'auto',
-    width: '70%'
+    width: '70%',
+    opacity:0.9,
+    marginTop:"20%",
+    borderRadius:"50%",
   }
 
 }
@@ -22,8 +25,12 @@ class ProfileImage extends Component {
           color: 'black',
           textAlign: 'center',
           marginTop: '10px',
-          backgroundColor: `${this.state.hovered ? 'red' : 'blue'}`, // background image change
-          transition: '1s'
+          backgroundImage: `${!this.state.hovered ? `url(images/grass.jpeg)` : `url(images/blood.jpeg)`}`, // background image change
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          transition: '1s',
+          border:'none',
+          borderRadius:"20px"
         }}
         onMouseOut={() => this.setState({ hovered: false })}
         onMouseOver={() => this.setState({ hovered: true })}
@@ -40,7 +47,8 @@ class ProfileImage extends Component {
               visibility: `${this.state.hovered ? 'visible' : 'hidden'}`,
               opacity: `${this.state.hovered ? '1' : '0'}`,
               transition: 'visibility 0s, opacity 1s linear',
-              fontSize: '30px'
+              fontSize: '30px',
+              color:"white"
             }}
           >{this.props.name}
           </Card.Title>

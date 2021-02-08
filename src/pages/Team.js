@@ -27,7 +27,7 @@ class Team extends Component {
                 <Col md={4}>
                   <ProfileImage
                     name={item.name}
-                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
+                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + item.img + '.jpg'}
                   /> {/* replace 1 with item.id */}
                 </Col>
               )
@@ -42,7 +42,7 @@ class Team extends Component {
                 <Col md={4}>
                   <ProfileImage
                     name={item.name}
-                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
+                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + item.img + '.jpg'}
                   /> {/* replace 1 with item.id */}
                 </Col>
               )
@@ -57,8 +57,8 @@ class Team extends Component {
                 <Col md={4}>
                   <ProfileImage
                     name={item.name}
-                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
-                  /> {/* replace 1 with item.id */}
+                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + item.img + '.jpg'}
+                  />
                 </Col>
               )
             })}
@@ -72,7 +72,7 @@ class Team extends Component {
                 <Col md={4}>
                   <ProfileImage
                     name={item.name}
-                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + 1 + '.jpg'}
+                    src={config.REACT_APP_FRONT_BASE_URL + 'images/team/' + item.img + '.jpg'}
                   /> {/* replace 1 with item.id */}
                 </Col>
               )
