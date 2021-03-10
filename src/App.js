@@ -19,7 +19,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 class App extends Component {
   render () {
     return (
-      <Router>
+      <Router basename={'/20'}>
         <Route path='/' component={NavBar} />
         <Switch>
           <Route exact path='/' component={Home} />
